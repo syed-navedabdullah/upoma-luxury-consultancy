@@ -52,7 +52,7 @@ function Practice() {
 
           <div className="col-span-12 md:col-span-5 order-1 md:order-2 space-y-8">
             <p className="text-xl md:text-2xl font-serif italic leading-relaxed text-bone">
-              Upoma was founded in Dhaka in 2019 as a quiet rebellion against the loud, the disposable, the imitation.
+              Upoma is launching in Dhaka in 2027 as a quiet rebellion against the loud, the disposable, the imitation.
             </p>
             <p className="text-base leading-relaxed text-bone/65">
               We are a deliberately small atelier of strategists, designers, writers and cultural anthropologists. We accept no more than seven engagements each year, devoting the patience and care our work requires.
@@ -67,7 +67,7 @@ function Practice() {
               </div>
               <div>
                 <p className="font-serif text-5xl text-bone">42</p>
-                <p className="text-[10px] tracking-luxury uppercase text-bone/65 mt-2">Partners since 2019</p>
+                <p className="text-[10px] tracking-luxury uppercase text-bone/65 mt-2">Launching 2027</p>
               </div>
             </div>
           </div>
