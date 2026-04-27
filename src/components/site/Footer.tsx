@@ -31,7 +31,7 @@ export function Footer() {
             <p className="text-[10px] tracking-luxury uppercase text-emerald-deep/55 mb-5">Inquiry</p>
             <a
               href="mailto:syednaved.abdullah@proton.me"
-              className="block font-serif italic text-2xl text-emerald-deep hover:text-gold transition-colors"
+              className="block font-serif italic text-lg md:text-xl break-all text-emerald-deep hover:text-gold transition-colors"
             >
               syednaved.abdullah@proton.me
             </a>
