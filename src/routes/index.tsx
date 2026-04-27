@@ -57,7 +57,7 @@ function Home() {
             <div className="absolute bottom-6 md:bottom-10 right-6 md:right-10">
               <Link
                 to="/portfolio"
-                className="group inline-flex items-center gap-4 bg-emerald-deep/90 backdrop-blur-md px-8 md:px-10 py-4 md:py-5 text-[10px] tracking-luxury uppercase text-bone hover:bg-emerald-deep hover:text-bone transition-all duration-700"
+                className="group inline-flex items-center gap-4 bg-bone/95 backdrop-blur-md px-8 md:px-10 py-4 md:py-5 text-[10px] tracking-luxury uppercase text-emerald-deep hover:bg-gold hover:text-emerald-deep transition-all duration-700"
               >
                 <span>View Portfolio</span>
                 <span className="h-px w-6 bg-current transition-all group-hover:w-10" />
@@ -204,18 +204,18 @@ function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-32 md:py-48 bg-emerald-deep text-bone">
+      <section className="py-32 md:py-48 bg-bone text-emerald-deep">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
-          <p className="text-[10px] tracking-luxury uppercase text-bone/50 mb-10">An Invitation</p>
+          <p className="text-[10px] tracking-luxury uppercase text-emerald-deep/60 mb-10">An Invitation</p>
           <h2 className="font-serif font-light text-5xl md:text-8xl leading-[0.95] text-balance max-w-5xl mx-auto">
             For brands that intend to <em className="italic text-gold">endure</em>.
           </h2>
-          <p className="mt-10 text-base md:text-lg text-bone/70 max-w-xl mx-auto">
+          <p className="mt-10 text-base md:text-lg text-emerald-deep/70 max-w-xl mx-auto">
             We accept a small number of engagements each year. Conversations begin in confidence.
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-4 mt-14 border border-bone/30 px-10 py-5 text-[10px] tracking-luxury uppercase text-bone hover:bg-emerald-deep hover:text-bone transition-all duration-700"
+            className="inline-flex items-center gap-4 mt-14 border border-emerald-deep/40 px-10 py-5 text-[10px] tracking-luxury uppercase text-emerald-deep hover:bg-emerald-deep hover:text-bone transition-all duration-700"
           >
             <span>Begin a conversation</span>
             <span className="h-px w-8 bg-current" />
