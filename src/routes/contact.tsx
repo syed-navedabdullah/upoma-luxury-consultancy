@@ -49,12 +49,11 @@ function Contact() {
             <div>
               <p className="text-[10px] tracking-luxury uppercase text-bone/60 mb-4">Direct</p>
               <a
-                href="mailto:studio@upoma.co"
-                className="block font-serif italic text-2xl text-bone hover:text-gold transition-colors"
+                href="mailto:syednaved.abdullah@proton.me"
+                className="block font-serif italic text-xl md:text-2xl break-all text-bone hover:text-gold transition-colors"
               >
-                studio@upoma.co
+                syednaved.abdullah@proton.me
               </a>
-              <p className="text-sm text-bone/65 mt-2">+880 1700 000 000</p>
             </div>
             <div>
               <p className="text-[10px] tracking-luxury uppercase text-bone/60 mb-4">Hours</p>
