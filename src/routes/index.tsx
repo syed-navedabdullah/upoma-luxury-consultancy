@@ -30,7 +30,7 @@ function Home() {
           <div className="grid grid-cols-12 gap-6 md:gap-8 items-end mb-16 md:mb-24">
             <div className="col-span-12 lg:col-span-9">
               <p className="text-[10px] tracking-luxury uppercase text-bone/60 mb-8">
-                Est. MMXIX — Dhaka, Bangladesh
+                Launching MMXXVII — Dhaka, Bangladesh
               </p>
               <span
                 lang="bn"
