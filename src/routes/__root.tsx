@@ -16,7 +16,7 @@ function NotFoundComponent() {
         <div className="mt-8">
           <Link
             to="/"
-            className="inline-flex items-center justify-center border border-bone px-8 py-3 text-[10px] tracking-refined uppercase text-bone hover:bg-emerald-deep hover:text-bone transition-all duration-500"
+            className="inline-flex items-center justify-center border border-bone/40 px-8 py-3 text-[10px] tracking-refined uppercase text-bone hover:bg-bone hover:text-emerald-deep transition-all duration-500"
           >
             Return home
           </Link>
@@ -52,7 +52,7 @@ export const Route = createRootRoute({
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Tenor+Sans&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+Bengali:wght@400;500;600&family=Tenor+Sans&display=swap",
       },
     ],
   }),

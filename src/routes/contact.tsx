@@ -142,7 +142,7 @@ function Contact() {
 
                 <button
                   type="submit"
-                  className="group inline-flex items-center gap-4 bg-emerald-deep text-bone px-10 py-5 text-[10px] tracking-luxury uppercase hover:bg-gold hover:text-bone transition-all duration-700"
+                  className="group inline-flex items-center gap-4 bg-bone text-emerald-deep px-10 py-5 text-[10px] tracking-luxury uppercase hover:bg-gold hover:text-emerald-deep transition-all duration-700"
                 >
                   <span>Send to the studio</span>
                   <span className="h-px w-8 bg-current transition-all group-hover:w-12" />

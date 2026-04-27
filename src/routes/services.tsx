@@ -110,7 +110,7 @@ function Services() {
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-4 mt-10 border border-bone px-10 py-5 text-[10px] tracking-luxury uppercase text-bone hover:bg-emerald-deep hover:text-bone transition-all duration-700"
+            className="inline-flex items-center gap-4 mt-10 border border-bone/40 px-10 py-5 text-[10px] tracking-luxury uppercase text-bone hover:bg-bone hover:text-emerald-deep transition-all duration-700"
           >
             <span>Speak with the studio</span>
             <span className="h-px w-8 bg-current" />
