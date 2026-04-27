@@ -32,7 +32,19 @@ function Home() {
               <p className="text-[10px] tracking-luxury uppercase text-bone/60 mb-8">
                 Est. MMXIX — Dhaka, Bangladesh
               </p>
-              <h1 className="font-serif font-light text-[clamp(3rem,9vw,8.5rem)] leading-[0.92] tracking-tight text-balance text-bone">
+              <span
+                lang="bn"
+                aria-hidden="true"
+                className="block text-bone leading-[0.85] mb-6"
+                style={{
+                  fontFamily: '"Noto Serif Bengali", serif',
+                  fontWeight: 500,
+                  fontSize: "clamp(4rem, 14vw, 14rem)",
+                }}
+              >
+                উপমা
+              </span>
+              <h1 className="font-serif font-light text-[clamp(2.25rem,6vw,5.5rem)] leading-[0.95] tracking-tight text-balance text-bone">
                 The quiet <em className="italic text-gold">eloquence</em><br />
                 of heritage-led luxury.
               </h1>
