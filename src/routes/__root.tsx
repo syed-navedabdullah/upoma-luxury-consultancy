@@ -6,17 +6,17 @@ import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-bone px-4">
+    <div className="flex min-h-screen items-center justify-center bg-emerald-deep px-4">
       <div className="max-w-md text-center">
-        <p className="text-[10px] tracking-luxury uppercase text-emerald-deep/60 mb-6">Error 404</p>
-        <h1 className="font-serif text-7xl text-emerald-deep">Lost in the weave</h1>
-        <p className="mt-4 text-sm text-muted-foreground">
+        <p className="text-[10px] tracking-luxury uppercase text-bone/60 mb-6">Error 404</p>
+        <h1 className="font-serif text-7xl text-bone">Lost in the weave</h1>
+        <p className="mt-4 text-sm text-bone/65">
           The page you sought has unraveled or never was.
         </p>
         <div className="mt-8">
           <Link
             to="/"
-            className="inline-flex items-center justify-center border border-emerald-deep px-8 py-3 text-[10px] tracking-refined uppercase text-emerald-deep hover:bg-emerald-deep hover:text-bone transition-all duration-500"
+            className="inline-flex items-center justify-center border border-bone/40 px-8 py-3 text-[10px] tracking-refined uppercase text-bone hover:bg-bone hover:text-emerald-deep transition-all duration-500"
           >
             Return home
           </Link>
@@ -52,7 +52,7 @@ export const Route = createRootRoute({
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Tenor+Sans&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+Bengali:wght@400;500;600&family=Tenor+Sans&display=swap",
       },
     ],
   }),
@@ -77,7 +77,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   return (
-    <div className="bg-bone text-foreground min-h-screen">
+    <div className="bg-emerald-deep text-foreground min-h-screen">
       <Nav />
       <main>
         <Outlet />

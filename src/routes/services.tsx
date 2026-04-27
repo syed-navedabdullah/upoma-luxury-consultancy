@@ -59,40 +59,40 @@ function Services() {
       <section className="pt-32 md:pt-40 pb-20 md:pb-28">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <SectionLabel index="00">Capabilities</SectionLabel>
-          <h1 className="mt-8 font-serif font-light text-[clamp(3rem,8vw,7rem)] leading-[0.95] text-emerald-deep max-w-5xl text-balance">
+          <h1 className="mt-8 font-serif font-light text-[clamp(3rem,8vw,7rem)] leading-[0.95] text-bone max-w-5xl text-balance">
             Five disciplines, <em className="italic">one</em> grammar.
           </h1>
-          <p className="mt-10 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
+          <p className="mt-10 max-w-xl text-base md:text-lg text-bone/65 leading-relaxed">
             Each engagement draws from one or more of the following disciplines, configured around the precise weight of your brief.
           </p>
         </div>
       </section>
 
       <section className="pb-32 md:pb-48">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 border-t border-emerald-deep/15">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 border-t border-bone/15">
           {services.map((s) => (
             <article
               key={s.n}
-              className="grid grid-cols-12 gap-6 md:gap-12 py-16 md:py-24 border-b border-emerald-deep/15 group"
+              className="grid grid-cols-12 gap-6 md:gap-12 py-16 md:py-24 border-b border-bone/15 group"
             >
               <div className="col-span-12 md:col-span-2">
                 <span className="font-serif italic text-3xl text-gold">{s.n}</span>
               </div>
               <div className="col-span-12 md:col-span-6">
-                <h2 className="font-serif text-4xl md:text-6xl text-emerald-deep mb-6 transition-colors duration-500 group-hover:text-gold">
+                <h2 className="font-serif text-4xl md:text-6xl text-bone mb-6 transition-colors duration-500 group-hover:text-gold">
                   {s.title}
                 </h2>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-[55ch]">
+                <p className="text-base md:text-lg text-bone/65 leading-relaxed max-w-[55ch]">
                   {s.body}
                 </p>
               </div>
               <div className="col-span-12 md:col-span-4 md:pt-4">
-                <p className="text-[10px] tracking-luxury uppercase text-emerald-deep/60 mb-4">Deliverables</p>
+                <p className="text-[10px] tracking-luxury uppercase text-bone/60 mb-4">Deliverables</p>
                 <ul className="space-y-3">
                   {s.deliverables.map((d) => (
                     <li
                       key={d}
-                      className="flex items-baseline gap-3 text-sm text-emerald-deep border-b border-emerald-deep/10 pb-3"
+                      className="flex items-baseline gap-3 text-sm text-bone border-b border-bone/10 pb-3"
                     >
                       <span className="text-gold text-[10px]">◆</span>
                       <span>{d}</span>
@@ -105,12 +105,12 @@ function Services() {
         </div>
 
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 mt-24 text-center">
-          <p className="font-serif italic text-3xl md:text-4xl text-emerald-deep max-w-2xl mx-auto leading-snug">
+          <p className="font-serif italic text-3xl md:text-4xl text-bone max-w-2xl mx-auto leading-snug">
             Unsure where your brief begins?
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-4 mt-10 border border-emerald-deep px-10 py-5 text-[10px] tracking-luxury uppercase text-emerald-deep hover:bg-emerald-deep hover:text-bone transition-all duration-700"
+            className="inline-flex items-center gap-4 mt-10 border border-bone/40 px-10 py-5 text-[10px] tracking-luxury uppercase text-bone hover:bg-bone hover:text-emerald-deep transition-all duration-700"
           >
             <span>Speak with the studio</span>
             <span className="h-px w-8 bg-current" />

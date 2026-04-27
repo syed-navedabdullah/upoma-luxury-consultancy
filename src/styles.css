@@ -67,26 +67,26 @@
   --gold: oklch(0.745 0.105 80);
   --ink: oklch(0.18 0.012 165);
 
-  /* Mapped semantic tokens */
-  --background: var(--bone);
-  --foreground: var(--ink);
-  --card: var(--bone);
-  --card-foreground: var(--ink);
-  --popover: var(--bone);
-  --popover-foreground: var(--ink);
-  --primary: var(--emerald-deep);
-  --primary-foreground: var(--bone);
-  --secondary: var(--silk);
-  --secondary-foreground: var(--emerald-deep);
-  --muted: var(--silk);
-  --muted-foreground: oklch(0.42 0.02 165);
+  /* Mapped semantic tokens — emerald canvas */
+  --background: var(--emerald-deep);
+  --foreground: var(--bone);
+  --card: oklch(0.26 0.05 165);
+  --card-foreground: var(--bone);
+  --popover: oklch(0.26 0.05 165);
+  --popover-foreground: var(--bone);
+  --primary: var(--bone);
+  --primary-foreground: var(--emerald-deep);
+  --secondary: oklch(0.36 0.05 165);
+  --secondary-foreground: var(--bone);
+  --muted: oklch(0.36 0.05 165);
+  --muted-foreground: oklch(0.78 0.015 85);
   --accent: var(--gold);
-  --accent-foreground: var(--ink);
-  --destructive: oklch(0.5 0.18 25);
+  --accent-foreground: var(--emerald-deep);
+  --destructive: oklch(0.55 0.18 25);
   --destructive-foreground: var(--bone);
-  --border: oklch(0.305 0.058 165 / 0.12);
-  --input: oklch(0.305 0.058 165 / 0.18);
-  --ring: var(--emerald-deep);
+  --border: oklch(0.974 0.008 85 / 0.15);
+  --input: oklch(0.974 0.008 85 / 0.2);
+  --ring: var(--gold);
 
   --sidebar: var(--bone);
   --sidebar-foreground: var(--ink);

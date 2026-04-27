@@ -23,17 +23,21 @@ export function Nav() {
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-700 ${
         scrolled
-          ? "bg-bone/85 backdrop-blur-md border-b border-border"
+          ? "bg-emerald-deep/85 backdrop-blur-md border-b border-border"
           : "bg-transparent"
       }`}
     >
       <nav className="max-w-[1400px] mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
-        <Link to="/" className="group flex items-baseline gap-3">
-          <span className="font-serif italic text-2xl md:text-3xl text-emerald-deep leading-none">
-            upoma
+        <Link to="/" className="group flex items-baseline gap-3" aria-label="Upoma — home">
+          <span
+            lang="bn"
+            className="text-3xl md:text-4xl text-bone leading-none"
+            style={{ fontFamily: '"Noto Serif Bengali", "Hind Siliguri", serif', fontWeight: 500 }}
+          >
+            উপমা
           </span>
-          <span className="hidden sm:inline text-[9px] tracking-luxury uppercase text-muted-foreground">
-            Dhaka
+          <span className="hidden sm:inline text-[9px] tracking-luxury uppercase text-bone/65">
+            Upoma · Dhaka
           </span>
         </Link>
 
@@ -42,7 +46,7 @@ export function Nav() {
             <Link
               key={l.to}
               to={l.to}
-              className="text-[10px] tracking-refined uppercase text-emerald-deep/80 hover:text-gold transition-colors duration-500"
+              className="text-[10px] tracking-refined uppercase text-bone/80 hover:text-gold transition-colors duration-500"
               activeProps={{ className: "text-gold" }}
             >
               {l.label}
@@ -52,7 +56,7 @@ export function Nav() {
 
         <button
           aria-label="Open menu"
-          className="md:hidden text-emerald-deep"
+          className="md:hidden text-bone"
           onClick={() => setOpen((v) => !v)}
         >
           <span className="block w-6 h-px bg-current mb-1.5" />
@@ -62,14 +66,14 @@ export function Nav() {
       </nav>
 
       {open && (
-        <div className="md:hidden bg-bone border-t border-border">
+        <div className="md:hidden bg-emerald-deep border-t border-border">
           <div className="px-6 py-8 flex flex-col gap-6">
             {links.map((l) => (
               <Link
                 key={l.to}
                 to={l.to}
                 onClick={() => setOpen(false)}
-                className="text-xs tracking-refined uppercase text-emerald-deep"
+                className="text-xs tracking-refined uppercase text-bone"
               >
                 {l.label}
               </Link>
