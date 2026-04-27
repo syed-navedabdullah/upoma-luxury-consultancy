@@ -30,12 +30,11 @@ export function Footer() {
           <div className="md:col-span-3">
             <p className="text-[10px] tracking-luxury uppercase text-emerald-deep/55 mb-5">Inquiry</p>
             <a
-              href="mailto:studio@upoma.co"
+              href="mailto:syednaved.abdullah@proton.me"
               className="block font-serif italic text-2xl text-emerald-deep hover:text-gold transition-colors"
             >
-              studio@upoma.co
+              syednaved.abdullah@proton.me
             </a>
-            <p className="text-sm text-emerald-deep/65 mt-2">+880 1700 000 000</p>
           </div>
         </div>
 
