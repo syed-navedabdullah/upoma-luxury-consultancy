@@ -67,7 +67,7 @@ function Founder() {
             <div className="h-px w-16 bg-gold" />
             <div className="space-y-6 text-base md:text-lg leading-relaxed text-bone/75">
               <p>
-                Syed Naved Abdullah founded Upoma in 2019 after a decade spent at the intersection of design, anthropology and the global luxury industry. Trained between Dhaka and London, he began his career working alongside heritage maisons in Europe before returning home with a singular conviction — that the next generation of enduring luxury would be authored from the East, on its own terms.
+                Syed Naved Abdullah is launching Upoma in 2027, after a decade spent at the intersection of design, strategy and the global luxury industry. Trained between Dhaka and Bangkok, he began his career working alongside heritage houses in South and Southeast Asia before returning home with a singular conviction — that the next generation of enduring luxury would be authored from the East, on its own terms.
               </p>
               <p>
                 His practice draws as much from Bengali poetry, jamdani weave structures and Mughal manuscript tradition as it does from contemporary brand strategy. Under his direction, Upoma has shaped identities, narratives and spatial experiences for textile houses, hospitality groups and cultural institutions across South Asia and beyond.

@@ -66,8 +66,8 @@ function Practice() {
                 <p className="text-[10px] tracking-luxury uppercase text-bone/65 mt-2">Engagements / year</p>
               </div>
               <div>
-                <p className="font-serif text-5xl text-bone">42</p>
-                <p className="text-[10px] tracking-luxury uppercase text-bone/65 mt-2">Launching 2027</p>
+                <p className="font-serif text-5xl text-bone">2027</p>
+                <p className="text-[10px] tracking-luxury uppercase text-bone/65 mt-2">Launching</p>
               </div>
             </div>
           </div>
