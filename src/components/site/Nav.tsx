@@ -28,12 +28,16 @@ export function Nav() {
       }`}
     >
       <nav className="max-w-[1400px] mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
-        <Link to="/" className="group flex items-baseline gap-3">
-          <span className="font-serif italic text-2xl md:text-3xl text-bone leading-none">
-            upoma
+        <Link to="/" className="group flex items-baseline gap-3" aria-label="Upoma — home">
+          <span
+            lang="bn"
+            className="text-3xl md:text-4xl text-bone leading-none"
+            style={{ fontFamily: '"Noto Serif Bengali", "Hind Siliguri", serif', fontWeight: 500 }}
+          >
+            উপমা
           </span>
           <span className="hidden sm:inline text-[9px] tracking-luxury uppercase text-bone/65">
-            Dhaka
+            Upoma · Dhaka
           </span>
         </Link>
 
