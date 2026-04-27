@@ -6,7 +6,14 @@ export function Footer() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-24">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
           <div className="md:col-span-5">
-            <p className="font-serif italic text-5xl md:text-6xl leading-[0.95] text-balance">
+            <span
+              lang="bn"
+              className="block text-7xl md:text-8xl text-emerald-deep leading-none mb-6"
+              style={{ fontFamily: '"Noto Serif Bengali", serif', fontWeight: 500 }}
+            >
+              উপমা
+            </span>
+            <p className="font-serif italic text-3xl md:text-4xl leading-[1.05] text-balance text-emerald-deep">
               A quiet house for <span className="text-gold">enduring</span> brands.
             </p>
           </div>
