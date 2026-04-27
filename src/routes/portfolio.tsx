@@ -72,7 +72,7 @@ function Portfolio() {
       <section className="pt-32 md:pt-40 pb-20 md:pb-28">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <SectionLabel index="00">The Archive</SectionLabel>
-          <h1 className="mt-8 font-serif font-light text-[clamp(3rem,8vw,7rem)] leading-[0.95] text-emerald-deep max-w-5xl text-balance">
+          <h1 className="mt-8 font-serif font-light text-[clamp(3rem,8vw,7rem)] leading-[0.95] text-bone max-w-5xl text-balance">
             Volumes from the <em className="italic">Upoma</em> archive.
           </h1>
         </div>
@@ -83,7 +83,7 @@ function Portfolio() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
             {works.map((w) => (
               <article key={w.title} className={`group cursor-pointer ${w.span ?? ""}`}>
-                <div className={`${w.aspect} overflow-hidden bg-silk`}>
+                <div className={`${w.aspect} overflow-hidden bg-emerald-mist/20`}>
                   <img
                     src={w.img}
                     alt={w.title}
@@ -93,13 +93,13 @@ function Portfolio() {
                 </div>
                 <div className="pt-6 flex justify-between items-start gap-6">
                   <div>
-                    <p className="text-[10px] tracking-luxury uppercase text-muted-foreground mb-2">
+                    <p className="text-[10px] tracking-luxury uppercase text-bone/65 mb-2">
                       {w.vol} — {w.discipline}
                     </p>
-                    <h2 className="font-serif italic text-2xl md:text-3xl text-emerald-deep">
+                    <h2 className="font-serif italic text-2xl md:text-3xl text-bone">
                       {w.title}
                     </h2>
-                    <p className="text-sm text-muted-foreground mt-2">{w.client}</p>
+                    <p className="text-sm text-bone/65 mt-2">{w.client}</p>
                   </div>
                   <span className="text-[10px] tracking-refined uppercase text-gold whitespace-nowrap pt-2">
                     {w.year}

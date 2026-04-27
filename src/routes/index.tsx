@@ -29,23 +29,23 @@ function Home() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-12 gap-6 md:gap-8 items-end mb-16 md:mb-24">
             <div className="col-span-12 lg:col-span-9">
-              <p className="text-[10px] tracking-luxury uppercase text-emerald-deep/60 mb-8">
+              <p className="text-[10px] tracking-luxury uppercase text-bone/60 mb-8">
                 Est. MMXIX — Dhaka, Bangladesh
               </p>
-              <h1 className="font-serif font-light text-[clamp(3rem,9vw,8.5rem)] leading-[0.92] tracking-tight text-balance text-emerald-deep">
+              <h1 className="font-serif font-light text-[clamp(3rem,9vw,8.5rem)] leading-[0.92] tracking-tight text-balance text-bone">
                 The quiet <em className="italic text-gold">eloquence</em><br />
                 of heritage-led luxury.
               </h1>
             </div>
             <div className="col-span-12 lg:col-span-3 pb-2">
-              <p className="text-sm leading-relaxed max-w-[28ch] text-muted-foreground">
+              <p className="text-sm leading-relaxed max-w-[28ch] text-bone/65">
                 A consultancy weaving the intricate soul of Bengali craft into the language of global luxury.
               </p>
             </div>
           </div>
 
           {/* Hero image */}
-          <div className="relative aspect-[21/10] overflow-hidden bg-silk">
+          <div className="relative aspect-[21/10] overflow-hidden bg-emerald-mist/20">
             <img
               src={heroMuslin}
               alt="Hand-loomed Dhaka muslin catching morning light against deep emerald"
@@ -57,7 +57,7 @@ function Home() {
             <div className="absolute bottom-6 md:bottom-10 right-6 md:right-10">
               <Link
                 to="/portfolio"
-                className="group inline-flex items-center gap-4 bg-bone/90 backdrop-blur-md px-8 md:px-10 py-4 md:py-5 text-[10px] tracking-luxury uppercase text-emerald-deep hover:bg-emerald-deep hover:text-bone transition-all duration-700"
+                className="group inline-flex items-center gap-4 bg-emerald-deep/90 backdrop-blur-md px-8 md:px-10 py-4 md:py-5 text-[10px] tracking-luxury uppercase text-bone hover:bg-emerald-deep hover:text-bone transition-all duration-700"
               >
                 <span>View Portfolio</span>
                 <span className="h-px w-6 bg-current transition-all group-hover:w-10" />
@@ -72,13 +72,13 @@ function Home() {
       </section>
 
       {/* ETHOS */}
-      <section className="py-32 md:py-48 bg-silk/40">
+      <section className="py-32 md:py-48 bg-bone/5">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-12 gap-12 md:gap-16">
             <div className="col-span-12 md:col-span-5">
               <div className="md:sticky md:top-32">
                 <SectionLabel index="01">Our Ethos</SectionLabel>
-                <h2 className="mt-8 font-serif text-4xl md:text-5xl italic leading-snug max-w-md text-emerald-deep">
+                <h2 className="mt-8 font-serif text-4xl md:text-5xl italic leading-snug max-w-md text-bone">
                   We believe luxury is a dialogue between the hand and the mind.
                 </h2>
               </div>
@@ -102,14 +102,14 @@ function Home() {
                   body: "From hand-pressed paper to spatial choreography, every touchpoint is tuned to a single, unmistakable frequency.",
                 },
               ].map((p) => (
-                <div key={p.n} className="border-b border-emerald-deep/10 pb-12">
+                <div key={p.n} className="border-b border-bone/10 pb-12">
                   <div className="flex items-baseline gap-6 mb-6">
                     <span className="font-serif italic text-gold text-lg">{p.n}</span>
-                    <h3 className="text-xl tracking-refined uppercase text-emerald-deep">
+                    <h3 className="text-xl tracking-refined uppercase text-bone">
                       {p.title}
                     </h3>
                   </div>
-                  <p className="max-w-[55ch] text-base md:text-lg leading-relaxed text-muted-foreground">
+                  <p className="max-w-[55ch] text-base md:text-lg leading-relaxed text-bone/65">
                     {p.body}
                   </p>
                 </div>
@@ -125,13 +125,13 @@ function Home() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 md:mb-24">
             <div>
               <SectionLabel index="02">Selected Fragments</SectionLabel>
-              <h2 className="mt-8 font-serif text-5xl md:text-7xl text-emerald-deep">
+              <h2 className="mt-8 font-serif text-5xl md:text-7xl text-bone">
                 A curated <em className="italic">archive</em>.
               </h2>
             </div>
             <Link
               to="/portfolio"
-              className="text-[10px] tracking-luxury uppercase text-emerald-deep border-b border-gold pb-1 hover:text-gold transition-colors"
+              className="text-[10px] tracking-luxury uppercase text-bone border-b border-gold pb-1 hover:text-gold transition-colors"
             >
               View all volumes
             </Link>
@@ -139,7 +139,7 @@ function Home() {
 
           <div className="grid grid-cols-12 gap-4 md:gap-6">
             <article className="col-span-12 md:col-span-7 group cursor-pointer">
-              <div className="aspect-[4/5] overflow-hidden bg-silk">
+              <div className="aspect-[4/5] overflow-hidden bg-emerald-mist/20">
                 <img
                   src={craft1}
                   alt="Bengali artisan weaving on traditional handloom"
@@ -151,8 +151,8 @@ function Home() {
               </div>
               <div className="pt-6 flex justify-between items-start">
                 <div>
-                  <p className="text-[10px] tracking-luxury uppercase text-muted-foreground mb-2">Vol. IV — Textile</p>
-                  <h3 className="font-serif italic text-2xl md:text-3xl text-emerald-deep">The Weaver's Paradox</h3>
+                  <p className="text-[10px] tracking-luxury uppercase text-bone/65 mb-2">Vol. IV — Textile</p>
+                  <h3 className="font-serif italic text-2xl md:text-3xl text-bone">The Weaver's Paradox</h3>
                 </div>
                 <span className="text-[10px] tracking-refined uppercase text-gold">2026</span>
               </div>
@@ -160,7 +160,7 @@ function Home() {
 
             <div className="col-span-12 md:col-span-5 flex flex-col gap-6">
               <article className="group cursor-pointer">
-                <div className="aspect-square overflow-hidden bg-silk">
+                <div className="aspect-square overflow-hidden bg-emerald-mist/20">
                   <img
                     src={craft2}
                     alt="Gold calligraphy on ivory paper"
@@ -172,15 +172,15 @@ function Home() {
                 </div>
                 <div className="pt-4 flex justify-between items-start">
                   <div>
-                    <p className="text-[10px] tracking-luxury uppercase text-muted-foreground mb-2">Vol. III — Identity</p>
-                    <h3 className="font-serif italic text-xl text-emerald-deep">Letters of Light</h3>
+                    <p className="text-[10px] tracking-luxury uppercase text-bone/65 mb-2">Vol. III — Identity</p>
+                    <h3 className="font-serif italic text-xl text-bone">Letters of Light</h3>
                   </div>
                   <span className="text-[10px] tracking-refined uppercase text-gold">2025</span>
                 </div>
               </article>
 
               <article className="group cursor-pointer">
-                <div className="aspect-[4/5] overflow-hidden bg-silk">
+                <div className="aspect-[4/5] overflow-hidden bg-emerald-mist/20">
                   <img
                     src={craft3}
                     alt="Emerald boutique interior with brass fixtures"
@@ -192,8 +192,8 @@ function Home() {
                 </div>
                 <div className="pt-4 flex justify-between items-start">
                   <div>
-                    <p className="text-[10px] tracking-luxury uppercase text-muted-foreground mb-2">Vol. II — Spatial</p>
-                    <h3 className="font-serif italic text-xl text-emerald-deep">House of Verdant</h3>
+                    <p className="text-[10px] tracking-luxury uppercase text-bone/65 mb-2">Vol. II — Spatial</p>
+                    <h3 className="font-serif italic text-xl text-bone">House of Verdant</h3>
                   </div>
                   <span className="text-[10px] tracking-refined uppercase text-gold">2024</span>
                 </div>
@@ -215,7 +215,7 @@ function Home() {
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-4 mt-14 border border-bone/30 px-10 py-5 text-[10px] tracking-luxury uppercase text-bone hover:bg-bone hover:text-emerald-deep transition-all duration-700"
+            className="inline-flex items-center gap-4 mt-14 border border-bone/30 px-10 py-5 text-[10px] tracking-luxury uppercase text-bone hover:bg-emerald-deep hover:text-bone transition-all duration-700"
           >
             <span>Begin a conversation</span>
             <span className="h-px w-8 bg-current" />
