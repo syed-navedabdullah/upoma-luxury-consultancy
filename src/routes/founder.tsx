@@ -81,8 +81,8 @@ function Founder() {
               <div>
                 <p className="text-[10px] tracking-luxury uppercase text-bone/45 mb-3">Education</p>
                 <p className="text-sm text-bone/80 leading-relaxed">
-                  Royal College of Art, London<br />
-                  University of Dhaka
+                  MBA, Sasin School of Management, Bangkok<br />
+                  Undergraduate, North South University, Dhaka
                 </p>
               </div>
               <div>
