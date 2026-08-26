@@ -1,83 +1,66 @@
-import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const links = [
-  { to: "/practice", label: "The Practice" },
-  { to: "/founder", label: "Founder" },
-  { to: "/services", label: "Services" },
-  { to: "/portfolio", label: "Portfolio" },
-  { to: "/contact", label: "Inquiry" },
-] as const;
+  { href: "#services", label: "Services" },
+  { href: "#work", label: "Work" },
+  { href: "#about", label: "About" },
+  { href: "#contact", label: "Contact" },
+];
 
 export function Nav() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-700 ${
-        scrolled
-          ? "bg-emerald-deep/85 backdrop-blur-md border-b border-border"
-          : "bg-transparent"
-      }`}
-    >
-      <nav className="max-w-[1400px] mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
-        <Link to="/" className="group flex items-baseline gap-3" aria-label="Upoma — home">
+    <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-md border-b border-border">
+      <nav className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+        <a href="#top" className="flex items-baseline gap-3" aria-label="Upoma — home">
           <span
             lang="bn"
-            className="text-3xl md:text-4xl text-bone leading-none"
-            style={{ fontFamily: '"Noto Serif Bengali", "Hind Siliguri", serif', fontWeight: 500 }}
+            className="text-2xl leading-none text-primary"
+            style={{ fontFamily: '"Noto Serif Bengali", serif', fontWeight: 500 }}
           >
             উপমা
           </span>
-          <span className="hidden sm:inline text-[9px] tracking-luxury uppercase text-bone/65">
-            Upoma · Dhaka
+          <span className="text-[11px] tracking-label uppercase text-foreground font-medium">
+            Upoma
           </span>
-        </Link>
+        </a>
 
-        <div className="hidden md:flex items-center gap-12">
+        <div className="hidden md:flex items-center gap-10">
           {links.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              className="text-[10px] tracking-refined uppercase text-bone/80 hover:text-gold transition-colors duration-500"
-              activeProps={{ className: "text-gold" }}
+            <a
+              key={l.href}
+              href={l.href}
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               {l.label}
-            </Link>
+            </a>
           ))}
         </div>
 
         <button
-          aria-label="Open menu"
-          className="md:hidden text-bone"
+          aria-label="Toggle menu"
+          className="md:hidden text-foreground"
           onClick={() => setOpen((v) => !v)}
         >
           <span className="block w-6 h-px bg-current mb-1.5" />
           <span className="block w-6 h-px bg-current mb-1.5" />
-          <span className="block w-4 h-px bg-current ml-auto" />
+          <span className="block w-6 h-px bg-current" />
         </button>
       </nav>
 
       {open && (
-        <div className="md:hidden bg-emerald-deep border-t border-border">
-          <div className="px-6 py-8 flex flex-col gap-6">
+        <div className="md:hidden border-t border-border bg-surface">
+          <div className="px-6 py-6 flex flex-col gap-5">
             {links.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
+              <a
+                key={l.href}
+                href={l.href}
                 onClick={() => setOpen(false)}
-                className="text-xs tracking-refined uppercase text-bone"
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 {l.label}
-              </Link>
+              </a>
             ))}
           </div>
         </div>

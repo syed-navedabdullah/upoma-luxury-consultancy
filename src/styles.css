@@ -5,9 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Upoma — Luxury Brand Consultancy
- * Ethereal Muslin direction, deep emerald (#123524).
- * Color tokens defined in oklch.
+ * Upoma — Digital Strategy & AI Consultancy
+ * Light, editorial, purple-accented.
  */
 
 @theme inline {
@@ -36,92 +35,40 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --color-bone: var(--bone);
-  --color-silk: var(--silk);
-  --color-emerald-deep: var(--emerald-deep);
-  --color-emerald-mist: var(--emerald-mist);
-  --color-gold: var(--gold);
-  --color-ink: var(--ink);
+  --color-tint: var(--tint);
+  --color-surface: var(--surface);
 
-  --font-serif: "Cormorant Garamond", Georgia, serif;
-  --font-sans: "Tenor Sans", "Inter", sans-serif;
-  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
 
-  --shadow-elegant: 0 30px 80px -30px color-mix(in oklab, var(--emerald-deep) 35%, transparent);
-  --shadow-soft: 0 10px 40px -20px color-mix(in oklab, var(--ink) 25%, transparent);
-
-  --gradient-veil: linear-gradient(180deg, color-mix(in oklab, var(--bone) 0%, transparent), var(--bone));
-  --gradient-emerald: linear-gradient(135deg, var(--emerald-deep), color-mix(in oklab, var(--emerald-deep) 70%, black));
-
-  --transition-silk: 800ms cubic-bezier(0.22, 1, 0.36, 1);
+  --font-weight-*: initial;
 }
 
 :root {
-  --radius: 0.25rem;
+  --radius: 0.5rem;
 
-  /* Brand palette */
-  --bone: oklch(0.974 0.008 85);
-  --silk: oklch(0.93 0.012 85);
-  --emerald-deep: oklch(0.305 0.058 165); /* #123524 */
-  --emerald-mist: oklch(0.55 0.045 165);
-  --gold: oklch(0.745 0.105 80);
-  --ink: oklch(0.18 0.012 165);
+  --background: #fafafa;
+  --foreground: #1a1a1a;
+  --surface: #ffffff;
+  --tint: #f3eef8;
 
-  /* Mapped semantic tokens — emerald canvas */
-  --background: var(--emerald-deep);
-  --foreground: var(--bone);
-  --card: oklch(0.26 0.05 165);
-  --card-foreground: var(--bone);
-  --popover: oklch(0.26 0.05 165);
-  --popover-foreground: var(--bone);
-  --primary: var(--bone);
-  --primary-foreground: var(--emerald-deep);
-  --secondary: oklch(0.36 0.05 165);
-  --secondary-foreground: var(--bone);
-  --muted: oklch(0.36 0.05 165);
-  --muted-foreground: oklch(0.78 0.015 85);
-  --accent: var(--gold);
-  --accent-foreground: var(--emerald-deep);
-  --destructive: oklch(0.55 0.18 25);
-  --destructive-foreground: var(--bone);
-  --border: oklch(0.974 0.008 85 / 0.15);
-  --input: oklch(0.974 0.008 85 / 0.2);
-  --ring: var(--gold);
-
-  --sidebar: var(--bone);
-  --sidebar-foreground: var(--ink);
-  --sidebar-primary: var(--emerald-deep);
-  --sidebar-primary-foreground: var(--bone);
-  --sidebar-accent: var(--silk);
-  --sidebar-accent-foreground: var(--emerald-deep);
-  --sidebar-border: oklch(0.305 0.058 165 / 0.12);
-  --sidebar-ring: var(--emerald-deep);
-
-  --chart-1: var(--emerald-deep);
-  --chart-2: var(--gold);
-  --chart-3: var(--emerald-mist);
-  --chart-4: var(--silk);
-  --chart-5: var(--ink);
-}
-
-.dark {
-  --background: var(--emerald-deep);
-  --foreground: var(--bone);
-  --card: oklch(0.25 0.05 165);
-  --card-foreground: var(--bone);
-  --popover: oklch(0.25 0.05 165);
-  --popover-foreground: var(--bone);
-  --primary: var(--bone);
-  --primary-foreground: var(--emerald-deep);
-  --secondary: oklch(0.35 0.05 165);
-  --secondary-foreground: var(--bone);
-  --muted: oklch(0.35 0.05 165);
-  --muted-foreground: oklch(0.75 0.02 165);
-  --accent: var(--gold);
-  --accent-foreground: var(--emerald-deep);
-  --border: oklch(1 0 0 / 0.1);
-  --input: oklch(1 0 0 / 0.15);
-  --ring: var(--gold);
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+  --primary: #3c0678;
+  --primary-foreground: #ffffff;
+  --secondary: #f3eef8;
+  --secondary-foreground: #3c0678;
+  --muted: #f3eef8;
+  --muted-foreground: #6b7280;
+  --accent: #f3eef8;
+  --accent-foreground: #3c0678;
+  --destructive: #b91c1c;
+  --destructive-foreground: #ffffff;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #3c0678;
 }
 
 @layer base {
@@ -131,6 +78,8 @@
 
   html {
     font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
 
   body {
@@ -140,27 +89,19 @@
     text-rendering: optimizeLegibility;
   }
 
-  h1, h2, h3, h4, h5 {
+  h1, h2, h3 {
     font-family: var(--font-serif);
-    font-weight: 300;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
   }
 
   ::selection {
-    background-color: color-mix(in oklab, var(--emerald-deep) 20%, transparent);
-    color: var(--emerald-deep);
+    background-color: var(--tint);
+    color: var(--primary);
   }
 }
 
 @layer utilities {
   .text-balance { text-wrap: balance; }
   .text-pretty  { text-wrap: pretty; }
-
-  .tracking-luxury { letter-spacing: 0.4em; }
-  .tracking-refined { letter-spacing: 0.25em; }
-
-  .veil-bottom {
-    -webkit-mask-image: linear-gradient(180deg, black 60%, transparent);
-            mask-image: linear-gradient(180deg, black 60%, transparent);
-  }
+  .tracking-label { letter-spacing: 0.18em; }
 }
