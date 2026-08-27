@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import founder1 from "@/assets/founder-1.png.asset.json";
+import founder2 from "@/assets/founder-2.jpg.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
