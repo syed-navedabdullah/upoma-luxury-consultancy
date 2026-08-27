@@ -269,12 +269,9 @@ function Home() {
       <section id="about" className="bg-tint border-y border-border">
         <div className="max-w-6xl mx-auto px-6 py-24 md:py-32 grid gap-12 md:grid-cols-12 md:gap-16">
           <div className="md:col-span-5">
-            <div className="aspect-[3/4] w-full rounded-lg border border-border bg-surface flex items-center justify-center">
-              <span className="text-xs tracking-label uppercase text-muted-foreground">
-                Founder photo
-              </span>
-            </div>
+            <FounderCarousel />
           </div>
+
 
           <div className="md:col-span-7">
             <h2 className="font-serif text-4xl md:text-5xl">Naved Abdullah</h2>
