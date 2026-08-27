@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import founder1 from "@/assets/founder-1.png.asset.json";
+import founder2 from "@/assets/founder-2.jpg.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -51,6 +54,53 @@ function Label({ children }: { children: React.ReactNode }) {
     <p className="text-[11px] tracking-label uppercase text-primary font-medium">{children}</p>
   );
 }
+
+const founderPhotos = [
+  { url: founder1.url, alt: "Naved Abdullah, founder of Upoma" },
+  { url: founder2.url, alt: "Naved Abdullah presenting at Sasin School of Management" },
+];
+
+function FounderCarousel() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setIndex((i) => (i + 1) % founderPhotos.length), 4000);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <div>
+      <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg border border-border bg-surface">
+        {founderPhotos.map((p, i) => (
+          <img
+            key={p.url}
+            src={p.url}
+            alt={p.alt}
+            loading="lazy"
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+              i === index ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
+      </div>
+      <div className="mt-4 flex gap-2">
+        {founderPhotos.map((p, i) => (
+          <button
+            key={p.url}
+            type="button"
+            aria-label={`Show photo ${i + 1}`}
+            onClick={() => setIndex(i)}
+            className={`h-1.5 w-8 rounded-full transition-colors ${
+              i === index ? "bg-primary" : "bg-border"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+
 
 function Home() {
   const [sent, setSent] = useState(false);
@@ -269,12 +319,9 @@ function Home() {
       <section id="about" className="bg-tint border-y border-border">
         <div className="max-w-6xl mx-auto px-6 py-24 md:py-32 grid gap-12 md:grid-cols-12 md:gap-16">
           <div className="md:col-span-5">
-            <div className="aspect-[3/4] w-full rounded-lg border border-border bg-surface flex items-center justify-center">
-              <span className="text-xs tracking-label uppercase text-muted-foreground">
-                Founder photo
-              </span>
-            </div>
+            <FounderCarousel />
           </div>
+
 
           <div className="md:col-span-7">
             <h2 className="font-serif text-4xl md:text-5xl">Naved Abdullah</h2>
