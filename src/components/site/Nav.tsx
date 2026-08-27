@@ -14,11 +14,7 @@ export function Nav() {
     <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-md border-b border-border">
       <nav className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
         <a href="#top" className="flex items-baseline gap-3" aria-label="Upoma — home">
-          <span
-            lang="bn"
-            className="text-2xl leading-none text-primary"
-            style={{ fontFamily: '"Noto Serif Bengali", serif', fontWeight: 500 }}
-          >
+          <span lang="bn" className="text-2xl leading-none text-primary font-medium">
             উপমা
           </span>
           <span className="text-[11px] tracking-label uppercase text-foreground font-medium">
