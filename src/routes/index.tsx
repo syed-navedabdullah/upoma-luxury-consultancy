@@ -61,7 +61,7 @@ function Home() {
       <section className="max-w-6xl mx-auto px-6 pt-24 pb-24 md:pt-36 md:pb-32">
         <h1 className="font-serif text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.08] text-balance max-w-4xl">
           Digital strategy and AI solutions for brands that build{" "}
-          <em className="italic text-primary">forward</em>.
+          <span className="text-primary">forward</span>.
         </h1>
         <p className="mt-8 max-w-2xl text-lg text-muted-foreground leading-relaxed text-pretty">
           Upoma is a Dhaka-based consultancy that builds intelligent systems, crafts digital
