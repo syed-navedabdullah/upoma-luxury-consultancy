@@ -114,28 +114,154 @@ function Home() {
       </section>
 
       {/* Work */}
-      <section id="work" className="max-w-6xl mx-auto px-6 py-24 md:py-32">
-        <Label>Selected work</Label>
-        <div className="mt-12 rounded-lg border border-border bg-surface p-8 md:p-12 max-w-3xl">
-          <h2 className="font-serif text-3xl md:text-4xl">Sasa</h2>
-          <p className="mt-2 text-sm text-muted-foreground">
-            AI assistant · Sasin School of Management, Bangkok
-          </p>
-          <p className="mt-6 text-[15px] leading-relaxed text-muted-foreground text-pretty">
-            An AI assistant built from scratch for Sasin — architecture, development, and
-            deployment handled end to end using Lovable, Supabase, and Cloudflare Workers. Proof
-            that a small, focused team can ship real products.
-          </p>
-          <ul className="mt-7 flex flex-wrap gap-2">
-            {["AI Assistant", "Supabase", "Cloudflare Workers", "End-to-end build"].map((t) => (
-              <li
-                key={t}
-                className="rounded-full border border-border bg-tint px-3 py-1 text-xs text-primary"
-              >
-                {t}
-              </li>
-            ))}
-          </ul>
+      <section id="work">
+        <div className="max-w-6xl mx-auto px-6 pt-24 md:pt-32">
+          <Label>Selected work</Label>
+        </div>
+
+        {/* Project 1 */}
+        <div className="bg-surface border-t border-border mt-12">
+          <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+            <span className="inline-block rounded-full border border-border bg-tint px-3 py-1 text-xs text-primary">
+              AI Solutions
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl mt-6">Sasa — AI Assistant for Sasin MBA</h2>
+            <p className="mt-6 text-[15px] leading-relaxed text-muted-foreground text-pretty max-w-3xl">
+              Sasin School of Management had a knowledge base buried in their student information
+              system — a static FAQ that students rarely used because it was hard to navigate. I
+              saw the gap, built a working prototype of an AI assistant from scratch, and pitched it
+              to the administration as a tool that could answer student queries instantly using the
+              university's own data.
+            </p>
+            <div className="mt-8 max-w-3xl">
+              <p className="text-[11px] tracking-label uppercase text-primary mb-4">What I did</p>
+              <ul className="space-y-3 text-[15px] text-muted-foreground">
+                <li className="flex gap-3">
+                  <span className="text-primary">—</span>
+                  <span>Identified the problem independently — no brief, no assignment</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-primary">—</span>
+                  <span>
+                    Built a RAG-based AI chatbot using Lovable (frontend), Supabase (backend), and
+                    Cloudflare Workers
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-primary">—</span>
+                  <span>Pitched it to Sasin's director as a 360-degree student solution</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-primary">—</span>
+                  <span>Scope expanded from a chatbot to a full AI implementation roadmap for the school</span>
+                </li>
+              </ul>
+            </div>
+            <div className="mt-10 max-w-3xl rounded-lg border-l-4 border-primary bg-tint p-6 md:p-8">
+              <p className="text-[11px] tracking-label uppercase text-primary mb-2">Key result</p>
+              <p className="text-lg md:text-xl text-foreground leading-snug">
+                What started as a side project became a job offer. I'm joining Sasin as their AI
+                &amp; Digital Solutions Officer.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Project 2 */}
+        <div className="bg-tint border-t border-border">
+          <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+            <span className="inline-block rounded-full border border-border bg-surface px-3 py-1 text-xs text-primary">
+              Social Media Management
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl mt-6">Sundora — Three Years of Digital Growth</h2>
+            <p className="mt-6 text-[15px] leading-relaxed text-muted-foreground text-pretty max-w-3xl">
+              Sundora is a Bangladeshi beauty and lifestyle brand with management based in Dubai. I
+              was their on-ground digital presence for three years — creating content, managing
+              social channels, and running campaigns while coordinating remotely with the leadership
+              team.
+            </p>
+            <div className="mt-8 max-w-3xl">
+              <p className="text-[11px] tracking-label uppercase text-primary mb-4">What I did</p>
+              <ul className="space-y-3 text-[15px] text-muted-foreground">
+                <li className="flex gap-3">
+                  <span className="text-primary">—</span>
+                  <span>Managed all social media content creation and publishing</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-primary">—</span>
+                  <span>Ran marketing communications across digital channels</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-primary">—</span>
+                  <span>Coordinated content strategy between Dhaka execution and Dubai management</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-primary">—</span>
+                  <span>Maintained consistent brand voice across platforms over a three-year period</span>
+                </li>
+              </ul>
+            </div>
+            <div className="mt-10 max-w-3xl rounded-lg border-l-4 border-primary bg-surface p-6 md:p-8">
+              <p className="text-[11px] tracking-label uppercase text-primary mb-2">Key result</p>
+              <p className="text-lg md:text-xl text-foreground leading-snug">
+                Grew Sundora's Instagram from 12,000 to 23,000 followers — nearly doubling their
+                audience through consistent, strategic content.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Project 3 */}
+        <div className="bg-surface border-t border-border">
+          <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+            <span className="inline-block rounded-full border border-border bg-tint px-3 py-1 text-xs text-primary">
+              Digital Marketing Strategy
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl mt-6">Sasin Social Media Strategy — Platform Revamp Proposal</h2>
+            <p className="mt-6 text-[15px] leading-relaxed text-muted-foreground text-pretty max-w-3xl">
+              Sasin's social media presence was corporate-heavy — the kind of content that works on
+              LinkedIn but falls flat on Instagram and TikTok. I independently developed a revamp
+              strategy focused on making the content work for each platform's audience and
+              behaviour.
+            </p>
+            <div className="mt-8 max-w-3xl">
+              <p className="text-[11px] tracking-label uppercase text-primary mb-4">What I did</p>
+              <ul className="space-y-3 text-[15px] text-muted-foreground">
+                <li className="flex gap-3">
+                  <span className="text-primary">—</span>
+                  <span>
+                    Audited Sasin's existing content across platforms and identified the
+                    corporate-visual mismatch
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-primary">—</span>
+                  <span>Proposed integrating Thai-language content to connect with the local audience</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-primary">—</span>
+                  <span>
+                    Designed a production workflow where all video is shot to allow
+                    horizontal-to-vertical reformatting for reels
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-primary">—</span>
+                  <span>
+                    Recommended synced subtitle highlighting to increase viewer retention on
+                    short-form video
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div className="mt-10 max-w-3xl rounded-lg border-l-4 border-primary bg-tint p-6 md:p-8">
+              <p className="text-[11px] tracking-label uppercase text-primary mb-2">Key result</p>
+              <p className="text-lg md:text-xl text-foreground leading-snug">
+                A platform-specific strategy that shifts Sasin's social content from broadcasting to
+                engaging — built around how people actually consume content on each platform.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
