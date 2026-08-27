@@ -55,6 +55,53 @@ function Label({ children }: { children: React.ReactNode }) {
   );
 }
 
+const founderPhotos = [
+  { url: founder1.url, alt: "Naved Abdullah, founder of Upoma" },
+  { url: founder2.url, alt: "Naved Abdullah presenting at Sasin School of Management" },
+];
+
+function FounderCarousel() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setIndex((i) => (i + 1) % founderPhotos.length), 4000);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <div>
+      <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg border border-border bg-surface">
+        {founderPhotos.map((p, i) => (
+          <img
+            key={p.url}
+            src={p.url}
+            alt={p.alt}
+            loading="lazy"
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+              i === index ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
+      </div>
+      <div className="mt-4 flex gap-2">
+        {founderPhotos.map((p, i) => (
+          <button
+            key={p.url}
+            type="button"
+            aria-label={`Show photo ${i + 1}`}
+            onClick={() => setIndex(i)}
+            className={`h-1.5 w-8 rounded-full transition-colors ${
+              i === index ? "bg-primary" : "bg-border"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+
+
 function Home() {
   const [sent, setSent] = useState(false);
 
