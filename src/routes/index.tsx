@@ -207,11 +207,10 @@ function Home() {
                 </li>
               </ul>
             </div>
-            <div className="mt-10 max-w-3xl rounded-lg border-l-4 border-primary bg-tint p-6 md:p-8">
-              <p className="text-[11px] tracking-label uppercase text-primary mb-2">Key result</p>
-              <p className="text-lg md:text-xl text-foreground leading-snug">
-                What started as a side project became a job offer. I'm joining Sasin as their AI
-                &amp; Digital Solutions Officer.
+            <div className="mt-10 max-w-3xl rounded-lg bg-[#3c067a] p-6 md:p-8">
+              <p className="text-[11px] tracking-label uppercase text-white/70 mb-2">Key result</p>
+              <p className="text-lg md:text-xl text-white leading-snug">
+                Offered a formal role from the institute in Bangkok.
               </p>
             </div>
           </div>
@@ -251,9 +250,9 @@ function Home() {
                 </li>
               </ul>
             </div>
-            <div className="mt-10 max-w-3xl rounded-lg border-l-4 border-primary bg-surface p-6 md:p-8">
-              <p className="text-[11px] tracking-label uppercase text-primary mb-2">Key result</p>
-              <p className="text-lg md:text-xl text-foreground leading-snug">
+            <div className="mt-10 max-w-3xl rounded-lg bg-[#3c067a] p-6 md:p-8">
+              <p className="text-[11px] tracking-label uppercase text-white/70 mb-2">Key result</p>
+              <p className="text-lg md:text-xl text-white leading-snug">
                 Grew Sundora's Instagram from 12,000 to 23,000 followers — nearly doubling their
                 audience through consistent, strategic content.
               </p>
@@ -304,9 +303,9 @@ function Home() {
                 </li>
               </ul>
             </div>
-            <div className="mt-10 max-w-3xl rounded-lg border-l-4 border-primary bg-tint p-6 md:p-8">
-              <p className="text-[11px] tracking-label uppercase text-primary mb-2">Key result</p>
-              <p className="text-lg md:text-xl text-foreground leading-snug">
+            <div className="mt-10 max-w-3xl rounded-lg bg-[#3c067a] p-6 md:p-8">
+              <p className="text-[11px] tracking-label uppercase text-white/70 mb-2">Key result</p>
+              <p className="text-lg md:text-xl text-white leading-snug">
                 A platform-specific strategy that shifts Sasin's social content from broadcasting to
                 engaging — built around how people actually consume content on each platform.
               </p>
