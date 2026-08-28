@@ -143,7 +143,7 @@ function FounderCarousel() {
   }, []);
 
   return (
-    <div className="bento-card p-2 md:p-3">
+    <div className="rounded-xl border border-border p-2 md:p-3">
       <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg bg-muted">
         {founderPhotos.map((p, i) => (
           <img
