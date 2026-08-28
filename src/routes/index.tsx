@@ -177,8 +177,8 @@ function FounderCarousel() {
 function StatCard({ label, value }: { label: string; value: string }) {
   return (
     <div className="bento-card flex flex-col justify-between min-h-[120px]">
-      <p className="text-[11px] tracking-label uppercase text-muted-foreground">{label}</p>
-      <p className="text-xl md:text-2xl font-bold text-foreground mt-3">{value}</p>
+      <p className="text-[11px] tracking-label uppercase text-white/70">{label}</p>
+      <p className="text-xl md:text-2xl font-bold text-white mt-3">{value}</p>
     </div>
   );
 }
@@ -282,7 +282,7 @@ function Home() {
   return (
     <div id="top">
       {/* Hero */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden hero-light bg-background text-foreground">
         <div className="max-w-6xl mx-auto px-6 pt-16 pb-20 md:pt-28 md:pb-32">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-10 items-start">
             <div className="lg:col-span-7">
@@ -323,7 +323,7 @@ function Home() {
                   <StatCard label="Focus" value="AI + Strategy" />
                   <StatCard label="Launch" value="2027" />
                   <div className="bento-card flex items-center justify-center min-h-[120px]">
-                    <span className="text-4xl font-bold text-primary animate-float">উ</span>
+                    <span className="text-4xl font-bold text-white animate-float">উ</span>
                   </div>
                 </div>
               </Reveal>

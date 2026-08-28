@@ -49,12 +49,12 @@
 
   --background: #6d28d9;
   --foreground: #ffffff;
-  --surface: #581c87;
-  --tint: #581c87;
+  --surface: #3c067a;
+  --tint: #3c067a;
 
-  --card: #581c87;
+  --card: #3c067a;
   --card-foreground: #ffffff;
-  --popover: #581c87;
+  --popover: #3c067a;
   --popover-foreground: #ffffff;
   --primary: #ffffff;
   --primary-foreground: #6d28d9;
@@ -116,6 +116,15 @@
 @utility reveal-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.hero-light {
+  --background: #ffffff;
+  --foreground: #170335;
+  --muted-foreground: rgba(23, 3, 53, 0.62);
+  --border: rgba(23, 3, 53, 0.15);
+  --primary: #3c067a;
+  --primary-foreground: #ffffff;
 }
 
 @utility bento-card {
