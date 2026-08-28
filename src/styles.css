@@ -118,7 +118,7 @@
   transform: translateY(0);
 }
 
-.hero-light {
+.section-light {
   --background: #ffffff;
   --foreground: #170335;
   --muted-foreground: rgba(23, 3, 53, 0.62);

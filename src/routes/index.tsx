@@ -282,7 +282,7 @@ function Home() {
   return (
     <div id="top">
       {/* Hero */}
-      <section className="relative overflow-hidden hero-light bg-background text-foreground">
+      <section className="relative overflow-hidden section-light bg-background text-foreground">
         <div className="max-w-6xl mx-auto px-6 pt-16 pb-20 md:pt-28 md:pb-32">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-10 items-start">
             <div className="lg:col-span-7">
@@ -319,7 +319,7 @@ function Home() {
             <div className="lg:col-span-5">
               <Reveal delay={250}>
                 <div className="grid grid-cols-2 gap-3">
-                  <StatCard label="Location" value="Dhaka-based" />
+                  <StatCard label="Location" value="Dhaka, Bangkok" />
                   <StatCard label="Focus" value="AI + Strategy" />
                   <StatCard label="Launch" value="2027" />
                   <div className="bento-card flex items-center justify-center min-h-[120px]">
@@ -377,7 +377,7 @@ function Home() {
       </section>
 
       {/* About */}
-      <section id="about" className="relative py-24 md:py-32 overflow-hidden">
+      <section id="about" className="relative py-24 md:py-32 overflow-hidden section-light bg-background text-foreground">
         <div className="max-w-6xl mx-auto px-6">
           <Reveal>
             <Label>About</Label>
@@ -392,7 +392,7 @@ function Home() {
 
             <div className="lg:col-span-7">
               <Reveal delay={150}>
-                <h2 className="font-serif text-4xl md:text-5xl text-foreground">Naved Abdullah</h2>
+                <h2 className="font-serif text-4xl md:text-5xl text-[#3c067a]">Naved Abdullah</h2>
                 <p className="mt-2 text-sm text-muted-foreground">Founder, Upoma</p>
               </Reveal>
 
@@ -420,18 +420,18 @@ function Home() {
               <Reveal delay={250}>
                 <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bento-card">
-                    <p className="text-[11px] tracking-label uppercase text-muted-foreground mb-3">
+                    <p className="text-[11px] tracking-label uppercase text-white/70 mb-3">
                       Education
                     </p>
-                    <p className="text-sm text-foreground leading-relaxed">
+                    <p className="text-sm text-white leading-relaxed">
                       MBA, Sasin School of Management (Chulalongkorn University), Bangkok
                     </p>
                   </div>
                   <div className="bento-card">
-                    <p className="text-[11px] tracking-label uppercase text-muted-foreground mb-3">
+                    <p className="text-[11px] tracking-label uppercase text-white/70 mb-3">
                       Based in
                     </p>
-                    <p className="text-sm text-foreground">Dhaka, Bangladesh</p>
+                    <p className="text-sm text-white">Dhaka, Bangkok</p>
                   </div>
                 </div>
               </Reveal>
