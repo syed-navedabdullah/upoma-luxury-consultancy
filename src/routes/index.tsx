@@ -441,7 +441,10 @@ function Home() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="relative py-24 md:py-32 border-t border-border/60">
+      <section
+        id="contact"
+        className="relative py-24 md:py-32 border-t border-border/60 section-light bg-background text-foreground"
+      >
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
@@ -471,7 +474,7 @@ function Home() {
             <div className="lg:col-span-7">
               <Reveal delay={200}>
                 {sent ? (
-                  <div className="rounded-xl border border-border bg-surface p-10 text-center">
+                  <div className="rounded-xl border border-border bg-background p-10 text-center">
                     <p className="font-serif text-3xl text-foreground">Message sent.</p>
                     <p className="mt-3 text-sm text-muted-foreground">
                       Thank you — you'll hear back within a few working days.
@@ -483,7 +486,7 @@ function Home() {
                       e.preventDefault();
                       setSent(true);
                     }}
-                    className="rounded-xl border border-border bg-surface p-8 md:p-10 space-y-6"
+                    className="rounded-xl border border-border bg-background p-8 md:p-10 space-y-6"
                   >
                     {[
                       { id: "name", label: "Name", type: "text", required: true },
@@ -502,7 +505,7 @@ function Home() {
                           name={f.id}
                           type={f.type}
                           required={f.required}
-                          className="w-full rounded-md border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                          className="w-full rounded-md border border-border bg-white px-4 py-3 text-sm text-black placeholder:text-black/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
                         />
                       </div>
                     ))}
@@ -519,7 +522,7 @@ function Home() {
                         name="message"
                         rows={5}
                         required
-                        className="w-full rounded-md border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none"
+                        className="w-full rounded-md border border-border bg-white px-4 py-3 text-sm text-black placeholder:text-black/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none"
                       />
                     </div>
 
