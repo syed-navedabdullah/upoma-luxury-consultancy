@@ -474,9 +474,9 @@ function Home() {
             <div className="lg:col-span-7">
               <Reveal delay={200}>
                 {sent ? (
-                  <div className="rounded-xl border border-border bg-background p-10 text-center">
-                    <p className="font-serif text-3xl text-foreground">Message sent.</p>
-                    <p className="mt-3 text-sm text-muted-foreground">
+                  <div className="rounded-xl border border-border bg-surface p-10 text-center">
+                    <p className="font-serif text-3xl text-white">Message sent.</p>
+                    <p className="mt-3 text-sm text-white/70">
                       Thank you — you'll hear back within a few working days.
                     </p>
                   </div>
@@ -486,7 +486,7 @@ function Home() {
                       e.preventDefault();
                       setSent(true);
                     }}
-                    className="rounded-xl border border-border bg-background p-8 md:p-10 space-y-6"
+                    className="rounded-xl border border-border bg-surface p-8 md:p-10 space-y-6"
                   >
                     {[
                       { id: "name", label: "Name", type: "text", required: true },
@@ -496,7 +496,7 @@ function Home() {
                       <div key={f.id}>
                         <label
                           htmlFor={f.id}
-                          className="block text-[11px] tracking-label uppercase text-muted-foreground mb-2"
+                          className="block text-[11px] tracking-label uppercase text-white/70 mb-2"
                         >
                           {f.label}
                         </label>
@@ -513,7 +513,7 @@ function Home() {
                     <div>
                       <label
                         htmlFor="message"
-                        className="block text-[11px] tracking-label uppercase text-muted-foreground mb-2"
+                        className="block text-[11px] tracking-label uppercase text-white/70 mb-2"
                       >
                         Message
                       </label>
@@ -528,7 +528,7 @@ function Home() {
 
                     <button
                       type="submit"
-                      className="rounded-md bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition-all"
+                      className="rounded-md bg-white px-7 py-3.5 text-sm font-medium text-black hover:opacity-90 transition-all"
                     >
                       Send Message
                     </button>
