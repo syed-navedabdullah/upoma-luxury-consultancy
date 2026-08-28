@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const links = [
   { href: "#services", label: "Services" },
@@ -9,15 +9,49 @@ const links = [
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("");
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const sections = links.map((l) => document.querySelector(l.href));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(`#${entry.target.id}`);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+    sections.forEach((s) => s && observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-md border-b border-border">
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 border-b ${
+        scrolled
+          ? "bg-background/80 backdrop-blur-xl border-border/60"
+          : "bg-transparent border-transparent"
+      }`}
+    >
       <nav className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-        <a href="#top" className="flex items-baseline gap-3" aria-label="Upoma — home">
-          <span lang="bn" className="text-2xl leading-none text-primary font-medium">
+        <a href="#top" className="flex items-baseline gap-3 group" aria-label="Upoma — home">
+          <span
+            lang="bn"
+            className="text-2xl leading-none text-foreground font-bold group-hover:text-primary transition-colors"
+          >
             উপমা
           </span>
-          <span className="text-[11px] tracking-label uppercase text-foreground font-medium">
+          <span className="text-[11px] tracking-label uppercase text-muted-foreground font-medium">
             Upoma
           </span>
         </a>
@@ -27,9 +61,18 @@ export function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              className={`relative text-sm transition-colors ${
+                active === l.href
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
             >
               {l.label}
+              <span
+                className={`absolute -bottom-1 left-0 h-px bg-primary transition-all duration-300 ${
+                  active === l.href ? "w-full" : "w-0 group-hover:w-full"
+                }`}
+              />
             </a>
           ))}
         </div>
@@ -46,14 +89,18 @@ export function Nav() {
       </nav>
 
       {open && (
-        <div className="md:hidden border-t border-border bg-surface">
+        <div className="md:hidden border-t border-border/60 bg-surface/95 backdrop-blur-xl">
           <div className="px-6 py-6 flex flex-col gap-5">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                className={`text-sm transition-colors ${
+                  active === l.href
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
               >
                 {l.label}
               </a>
