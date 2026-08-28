@@ -261,9 +261,11 @@ function ProjectPanel({
           </Reveal>
 
           <Reveal delay={250}>
-            <div className="rounded-xl bg-primary-deep p-6 md:p-8 glow-box">
-              <p className="text-[11px] tracking-label uppercase text-white/70 mb-3">Key result</p>
-              <p className="text-lg md:text-xl text-white leading-snug font-medium">
+            <div className="rounded-xl bg-primary-deep p-6 md:p-8">
+              <p className="text-[11px] tracking-label uppercase text-primary-foreground/70 mb-3">
+                Key result
+              </p>
+              <p className="text-lg md:text-xl text-primary-foreground leading-snug font-medium">
                 {project.result}
               </p>
             </div>
@@ -280,14 +282,14 @@ function Home() {
   return (
     <div id="top">
       {/* Hero */}
-      <section className="relative overflow-hidden gradient-radial">
+      <section className="relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 pt-16 pb-20 md:pt-28 md:pb-32">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-10 items-start">
             <div className="lg:col-span-7">
               <Reveal>
                 <h1 className="font-serif text-[clamp(2.6rem,7vw,5.5rem)] leading-[1.02] text-balance">
                   Digital strategy and AI solutions for brands that build{" "}
-                  <span className="text-primary animate-pulse-glow">forward</span>.
+                  <span className="text-primary">forward</span>.
                 </h1>
               </Reveal>
               <Reveal delay={100}>
@@ -300,7 +302,7 @@ function Home() {
                 <div className="mt-10 flex flex-wrap gap-4">
                   <a
                     href="#work"
-                    className="inline-flex items-center rounded-md bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition-all hover:glow-box"
+                    className="inline-flex items-center rounded-md bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition-all"
                   >
                     View Work
                   </a>
@@ -331,7 +333,7 @@ function Home() {
       </section>
 
       {/* Services */}
-      <section id="services" className="relative py-24 md:py-32 overflow-hidden gradient-radial-bottom">
+      <section id="services" className="relative py-24 md:py-32 overflow-hidden">
         <div className="max-w-6xl mx-auto px-6">
           <Reveal>
             <Label>What we do</Label>
@@ -375,7 +377,7 @@ function Home() {
       </section>
 
       {/* About */}
-      <section id="about" className="relative py-24 md:py-32 overflow-hidden gradient-radial">
+      <section id="about" className="relative py-24 md:py-32 overflow-hidden">
         <div className="max-w-6xl mx-auto px-6">
           <Reveal>
             <Label>About</Label>
@@ -469,7 +471,7 @@ function Home() {
             <div className="lg:col-span-7">
               <Reveal delay={200}>
                 {sent ? (
-                  <div className="rounded-xl border border-border bg-surface p-10 text-center glow-box">
+                  <div className="rounded-xl border border-border bg-surface p-10 text-center">
                     <p className="font-serif text-3xl text-foreground">Message sent.</p>
                     <p className="mt-3 text-sm text-muted-foreground">
                       Thank you — you'll hear back within a few working days.
@@ -523,7 +525,7 @@ function Home() {
 
                     <button
                       type="submit"
-                      className="rounded-md bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition-all hover:glow-box"
+                      className="rounded-md bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition-all"
                     >
                       Send Message
                     </button>
