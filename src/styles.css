@@ -6,7 +6,7 @@
 
 /*
  * Upoma — Digital Strategy & AI Consultancy
- * Light, editorial, purple-accented.
+ * Midnight + electric purple. Bold, premium, dynamic.
  */
 
 @theme inline {
@@ -37,38 +37,40 @@
 
   --color-tint: var(--tint);
   --color-surface: var(--surface);
+  --color-glow: var(--glow);
+  --color-primary-deep: var(--primary-deep);
 
   --font-sans: "Glacial Indifference", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Glacial Indifference", ui-sans-serif, system-ui, sans-serif;
-
-  --font-weight-*: initial;
 }
 
 :root {
-  --radius: 0.5rem;
+  --radius: 0.75rem;
 
-  --background: #fafafa;
-  --foreground: #1a1a1a;
-  --surface: #ffffff;
-  --tint: #f3eef8;
+  --background: #0a0a0f;
+  --foreground: #ffffff;
+  --surface: #111118;
+  --tint: #1a0a2e;
 
-  --card: #ffffff;
-  --card-foreground: #1a1a1a;
-  --popover: #ffffff;
-  --popover-foreground: #1a1a1a;
-  --primary: #3c0678;
+  --card: #111118;
+  --card-foreground: #ffffff;
+  --popover: #111118;
+  --popover-foreground: #ffffff;
+  --primary: #7c3aed;
   --primary-foreground: #ffffff;
-  --secondary: #f3eef8;
-  --secondary-foreground: #3c0678;
-  --muted: #f3eef8;
-  --muted-foreground: #6b7280;
-  --accent: #f3eef8;
-  --accent-foreground: #3c0678;
-  --destructive: #b91c1c;
+  --primary-deep: #3c0678;
+  --secondary: #18181f;
+  --secondary-foreground: #ffffff;
+  --muted: #18181f;
+  --muted-foreground: #a1a1aa;
+  --accent: #3c0678;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #e5e7eb;
-  --input: #e5e7eb;
-  --ring: #3c0678;
+  --border: #27272a;
+  --input: #27272a;
+  --ring: #7c3aed;
+  --glow: #7c3aed;
 }
 
 @layer base {
@@ -92,17 +94,86 @@
   h1, h2, h3 {
     font-family: var(--font-serif);
     font-weight: 700;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
   }
 
   h2, h3 {
-    color: var(--color-primary);
+    color: var(--color-foreground);
   }
 
   ::selection {
-    background-color: var(--tint);
-    color: var(--primary);
+    background-color: var(--primary);
+    color: var(--primary-foreground);
   }
+}
+
+@utility reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@utility reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@utility glow-box {
+  box-shadow: 0 0 40px -12px color-mix(in oklab, var(--glow) 35%, transparent);
+}
+
+@utility glow-text {
+  text-shadow: 0 0 24px color-mix(in oklab, var(--glow) 50%, transparent);
+}
+
+@utility gradient-radial {
+  background: radial-gradient(circle at 50% 0%, color-mix(in oklab, var(--primary) 18%, transparent), transparent 60%);
+}
+
+@utility gradient-radial-bottom {
+  background: radial-gradient(circle at 50% 100%, color-mix(in oklab, var(--primary-deep) 22%, transparent), transparent 55%);
+}
+
+@utility bento-card {
+  @apply rounded-xl border border-border bg-surface p-6 md:p-8 transition-all duration-300 hover:border-primary/60 hover:-translate-y-1 hover:glow-box;
+}
+
+@utility tag {
+  @apply inline-flex rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 24px color-mix(in oklab, var(--glow) 45%, transparent);
+  }
+  50% {
+    opacity: 0.85;
+    text-shadow: 0 0 40px color-mix(in oklab, var(--glow) 70%, transparent);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes line-reveal {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@utility animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@utility animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+@utility animate-line-reveal {
+  animation: line-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: left;
 }
 
 @layer utilities {
