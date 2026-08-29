@@ -379,8 +379,12 @@ function ProjectCarousel() {
   );
 }
 
+const CONTACT_ENDPOINT = "https://upoma-contact.navedabdullah5.workers.dev";
+
 function Home() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
   return (
     <div id="top">
@@ -584,9 +588,30 @@ function Home() {
                   </div>
                 ) : (
                   <form
-                    onSubmit={(e) => {
+                    onSubmit={async (e) => {
                       e.preventDefault();
-                      setSent(true);
+                      setError("");
+                      setSending(true);
+                      const form = e.currentTarget;
+                      const data = new FormData(form);
+                      try {
+                        const res = await fetch(CONTACT_ENDPOINT, {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({
+                            name: data.get("name"),
+                            email: data.get("email"),
+                            org: data.get("org"),
+                            message: data.get("message"),
+                          }),
+                        });
+                        if (!res.ok) throw new Error("Request failed");
+                        setSent(true);
+                      } catch {
+                        setError("Something went wrong sending your message. Please email us directly instead.");
+                      } finally {
+                        setSending(false);
+                      }
                     }}
                     className="rounded-xl border border-border bg-surface p-8 md:p-10 space-y-6"
                   >
@@ -628,11 +653,14 @@ function Home() {
                       />
                     </div>
 
+                    {error && <p className="text-sm text-red-300">{error}</p>}
+
                     <button
                       type="submit"
-                      className="rounded-md bg-white px-7 py-3.5 text-sm font-medium text-black hover:opacity-90 transition-all"
+                      disabled={sending}
+                      className="rounded-md bg-white px-7 py-3.5 text-sm font-medium text-black hover:opacity-90 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      Send Message
+                      {sending ? "Sending…" : "Send Message"}
                     </button>
                   </form>
                 )}
