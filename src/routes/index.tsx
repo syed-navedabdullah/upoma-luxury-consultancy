@@ -29,14 +29,19 @@ export const Route = createFileRoute("/")({
 const services = [
   {
     title: "AI Solutions",
-    body: "AI tools tailored to your business — from intelligent assistants to automated workflows. We work across both American and Chinese AI platforms, including OpenAI, Anthropic, Kimi, and Mimo, to find the right fit for each problem. Whether it's a customer-facing chatbot, an internal knowledge base, or a content workflow powered by AI, we build practical solutions that work from day one.",
+    body: "AI tools tailored to your business — from intelligent assistants to automated workflows. We work across both American and Chinese AI platforms, including OpenAI, Anthropic, and various Chinese AIs, to find the right fit for each problem. Whether it's a customer-facing chatbot, an internal knowledge base, or a content workflow powered by AI, we build practical solutions that work from day one.",
     tags: ["AI Assistants", "Workflow Automation", "Chatbots", "Knowledge Bases", "Content AI"],
     featured: true,
     tools: [
       { name: "OpenAI", logo: "/tools/openai.svg" },
       { name: "Anthropic", logo: "/tools/anthropic.svg" },
+      { name: "Gemini", logo: "/tools/gemini.svg" },
+      { name: "DeepSeek", logo: "/tools/deepseek.svg" },
+      { name: "Qwen", logo: "/tools/qwen.svg" },
       { name: "Kimi", logo: "/tools/kimi.svg" },
+      { name: "Manus", logo: "/tools/manus.svg" },
       { name: "Mimo", logo: "/tools/mimo.svg" },
+      { name: "Lovable", logo: "/tools/lovable.svg" },
     ],
   },
   {
