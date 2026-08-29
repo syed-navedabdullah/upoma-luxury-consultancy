@@ -39,6 +39,7 @@
   --color-surface: var(--surface);
   --color-glow: var(--glow);
   --color-primary-deep: var(--primary-deep);
+  --color-hero-overlay: var(--hero-overlay);
 
   --font-sans: "Glacial Indifference", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Glacial Indifference", ui-sans-serif, system-ui, sans-serif;
@@ -71,6 +72,7 @@
   --input: rgba(255, 255, 255, 0.2);
   --ring: #ffffff;
   --glow: #ffffff;
+  --hero-overlay: rgb(0 0 0 / 0.85);
 }
 
 @layer base {
