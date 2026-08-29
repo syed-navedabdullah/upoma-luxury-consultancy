@@ -29,8 +29,8 @@ export const Route = createFileRoute("/")({
 const services = [
   {
     title: "AI Solutions",
-    body: "Custom AI tools built for your specific business needs — from intelligent assistants to automated workflows. We handle architecture, development, and deployment.",
-    tags: ["AI Assistants", "Workflow Automation", "System Architecture", "Deployment"],
+    body: "AI tools tailored to your business — from intelligent assistants to automated workflows. We work across both American and Chinese AI platforms, including OpenAI, Anthropic, Kimi, and Mimo, to find the right fit for each problem. Whether it's a customer-facing chatbot, an internal knowledge base, or a content workflow powered by AI, we build practical solutions that work from day one.",
+    tags: ["AI Assistants", "Workflow Automation", "Chatbots", "Knowledge Bases", "Content AI"],
     featured: true,
   },
   {
