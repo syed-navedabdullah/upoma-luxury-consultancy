@@ -4,23 +4,32 @@ import founder1 from "@/assets/founder-1.png.asset.json";
 import founder2 from "@/assets/founder-2.jpg.asset.json";
 import { useInView } from "@/hooks/use-in-view";
 
-import heroSunset from "@/assets/hero/bangkok-sunset.jpg";
-import heroBridge from "@/assets/hero/dhaka-bridge.jpg";
-import heroFlyover from "@/assets/hero/dhaka-flyover.jpg";
-import heroPark from "@/assets/hero/bangkok-park.jpg";
+import toolOpenaiAsset from "@/assets/tools/openai.jpg.asset.json";
+import toolAnthropicAsset from "@/assets/tools/anthropic.png.asset.json";
+import toolGeminiAsset from "@/assets/tools/gemini.webp.asset.json";
+import toolDeepseekAsset from "@/assets/tools/deepseek.webp.asset.json";
+import toolQwenAsset from "@/assets/tools/qwen.png.asset.json";
+import toolKimiAsset from "@/assets/tools/kimi.webp.asset.json";
+import toolManusAsset from "@/assets/tools/manus.png.asset.json";
+import toolMimoAsset from "@/assets/tools/mimo.jpg.asset.json";
+import toolLovableAsset from "@/assets/tools/lovable.jpg.asset.json";
 
-import toolOpenai from "@/assets/tools/openai.jpg";
-import toolAnthropic from "@/assets/tools/anthropic.png";
-import toolGemini from "@/assets/tools/gemini.webp";
-import toolDeepseek from "@/assets/tools/deepseek.webp";
-import toolQwen from "@/assets/tools/qwen.png";
-import toolKimi from "@/assets/tools/kimi.webp";
-import toolManus from "@/assets/tools/manus.png";
-import toolMimo from "@/assets/tools/mimo.jpg";
-import toolLovable from "@/assets/tools/lovable.jpg";
+import logoSasinAsset from "@/assets/logos/sasin.svg.asset.json";
+import logoSundoraAsset from "@/assets/logos/sundora.svg.asset.json";
 
-import logoSasin from "@/assets/logos/sasin.svg";
-import logoSundora from "@/assets/logos/sundora.svg";
+const toolOpenai = toolOpenaiAsset.url;
+const toolAnthropic = toolAnthropicAsset.url;
+const toolGemini = toolGeminiAsset.url;
+const toolDeepseek = toolDeepseekAsset.url;
+const toolQwen = toolQwenAsset.url;
+const toolKimi = toolKimiAsset.url;
+const toolManus = toolManusAsset.url;
+const toolMimo = toolMimoAsset.url;
+const toolLovable = toolLovableAsset.url;
+
+const logoSasin = logoSasinAsset.url;
+const logoSundora = logoSundoraAsset.url;
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -137,13 +146,6 @@ const founderPhotos = [
   { url: founder2.url, alt: "Naved Abdullah presenting at Sasin School of Management" },
 ];
 
-const heroPhotos = [
-  heroSunset,
-  heroBridge,
-  heroFlyover,
-  heroPark,
-];
-
 function Label({ children }: { children: React.ReactNode }) {
   return (
     <p className="text-[11px] tracking-label uppercase text-primary font-semibold">{children}</p>
@@ -212,31 +214,6 @@ function FounderCarousel() {
           />
         ))}
       </div>
-    </div>
-  );
-}
-
-function HeroCarousel() {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const id = setInterval(() => setIndex((i) => (i + 1) % heroPhotos.length), 6000);
-    return () => clearInterval(id);
-  }, []);
-
-  return (
-    <div className="absolute inset-0 -z-10" aria-hidden="true">
-      {heroPhotos.map((url, i) => (
-        <img
-          key={url}
-          src={url}
-          alt=""
-          loading={i === 0 ? "eager" : "lazy"}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
-            i === index ? "opacity-100" : "opacity-0"
-          }`}
-        />
-      ))}
     </div>
   );
 }
@@ -408,20 +385,18 @@ function Home() {
   return (
     <div id="top">
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <HeroCarousel />
-        <div className="absolute inset-0 bg-black/75" />
+      <section className="relative overflow-hidden section-light bg-background text-foreground">
         <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-20 md:pt-28 md:pb-32">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-10 items-start">
             <div className="lg:col-span-7">
               <Reveal>
-                <h1 className="font-serif text-[clamp(2.6rem,7vw,5.5rem)] leading-[1.02] text-balance text-white">
+                <h1 className="font-serif text-[clamp(2.6rem,7vw,5.5rem)] leading-[1.02] text-balance text-foreground">
                   Digital strategy and AI solutions for brands that build{" "}
-                  <span className="text-[#c4b5fd]">forward</span>.
+                  <span className="text-primary">forward</span>.
                 </h1>
               </Reveal>
               <Reveal delay={100}>
-                <p className="mt-8 max-w-2xl text-lg text-white/70 leading-relaxed text-pretty">
+                <p className="mt-8 max-w-2xl text-lg text-muted-foreground leading-relaxed text-pretty">
                   Upoma is a Dhaka-based consultancy that builds intelligent systems, crafts
                   digital strategies, and helps brands operate smarter.
                 </p>
@@ -449,7 +424,7 @@ function Home() {
                 <div className="grid grid-cols-2 gap-3">
                   <StatCard label="Location" value="Dhaka, Bangkok" />
                   <StatCard label="Focus" value="AI + Strategy" />
-                  <StatCard label="Launch" value="2027" />
+                  <StatCard label="Launch" value="2026" />
                   <div className="bento-card flex items-center justify-center min-h-[120px]">
                     <span className="text-4xl font-bold text-white animate-float">উ</span>
                   </div>

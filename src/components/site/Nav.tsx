@@ -50,7 +50,10 @@ export function Nav() {
             উপমা
           </span>
           <span className="text-[11px] tracking-label uppercase text-muted-foreground font-medium">
-            Upoma
+            Upoma by Naved
+          </span>
+          <span className="hidden sm:inline text-[11px] tracking-label uppercase text-muted-foreground/60 font-medium">
+            Launch 2026
           </span>
         </a>
 
