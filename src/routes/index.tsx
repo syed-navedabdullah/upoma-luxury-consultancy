@@ -4,10 +4,8 @@ import founder1 from "@/assets/founder-1.png.asset.json";
 import founder2 from "@/assets/founder-2.jpg.asset.json";
 import { useInView } from "@/hooks/use-in-view";
 
-import heroSunsetAsset from "@/assets/hero/bangkok-sunset.jpg.asset.json";
-import heroBridgeAsset from "@/assets/hero/dhaka-bridge.jpg.asset.json";
-import heroFlyoverAsset from "@/assets/hero/dhaka-flyover.jpg.asset.json";
-import heroParkAsset from "@/assets/hero/bangkok-park.jpg.asset.json";
+import heroBangkokAsset from "@/assets/hero/bangkok-skyline.png.asset.json";
+import heroDhakaAsset from "@/assets/hero/dhaka-lake-bridge.png.asset.json";
 
 import toolOpenaiAsset from "@/assets/tools/openai.jpg.asset.json";
 import toolAnthropicAsset from "@/assets/tools/anthropic.png.asset.json";
@@ -21,11 +19,6 @@ import toolLovableAsset from "@/assets/tools/lovable.jpg.asset.json";
 
 import logoSasinAsset from "@/assets/logos/sasin.svg.asset.json";
 import logoSundoraAsset from "@/assets/logos/sundora.svg.asset.json";
-
-const heroSunset = heroSunsetAsset.url;
-const heroBridge = heroBridgeAsset.url;
-const heroFlyover = heroFlyoverAsset.url;
-const heroPark = heroParkAsset.url;
 
 const toolOpenai = toolOpenaiAsset.url;
 const toolAnthropic = toolAnthropicAsset.url;
@@ -157,10 +150,8 @@ const founderPhotos = [
 ];
 
 const heroPhotos = [
-  heroSunset,
-  heroBridge,
-  heroFlyover,
-  heroPark,
+  { url: heroBangkokAsset.url, alt: "Bangkok skyline at dusk" },
+  { url: heroDhakaAsset.url, alt: "Dhaka cityscape and lake bridge" },
 ];
 
 function Label({ children }: { children: React.ReactNode }) {
@@ -244,18 +235,21 @@ function HeroCarousel() {
   }, []);
 
   return (
-    <div className="absolute inset-0 -z-10" aria-hidden="true">
-      {heroPhotos.map((url, i) => (
-        <img
-          key={url}
-          src={url}
-          alt=""
-          loading={i === 0 ? "eager" : "lazy"}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
-            i === index ? "opacity-100" : "opacity-0"
-          }`}
-        />
-      ))}
+    <div className="absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
+      <div
+        className="flex h-full motion-safe:transition-transform motion-safe:duration-1000 motion-safe:ease-in-out"
+        style={{ transform: `translateX(-${index * 100}%)` }}
+      >
+        {heroPhotos.map((photo, i) => (
+          <img
+            key={photo.url}
+            src={photo.url}
+            alt={photo.alt}
+            loading={i === 0 ? "eager" : "lazy"}
+            className="h-full min-w-full object-cover"
+          />
+        ))}
+      </div>
     </div>
   );
 }
@@ -429,7 +423,7 @@ function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <HeroCarousel />
-        <div className="absolute inset-0 bg-black/75" />
+        <div className="absolute inset-0 bg-hero-overlay" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-20 md:pt-28 md:pb-32">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-10 items-start">
             <div className="lg:col-span-7">
