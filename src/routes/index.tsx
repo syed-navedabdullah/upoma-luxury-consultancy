@@ -192,13 +192,16 @@ function ServiceCard({
 }) {
   return (
     <article className={`bento-card flex flex-col ${className}`}>
-      <h2 className="font-serif text-2xl md:text-3xl text-foreground">{service.title}</h2>
-      <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground flex-1 text-pretty">
+      <h2 className="font-serif text-2xl md:text-3xl text-white">{service.title}</h2>
+      <p className="mt-4 text-[15px] leading-relaxed text-white/70 flex-1 text-pretty">
         {service.body}
       </p>
       <ul className="mt-7 flex flex-wrap gap-2">
         {service.tags.map((t) => (
-          <li key={t} className="tag">
+          <li
+            key={t}
+            className="inline-flex rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-medium text-white"
+          >
             {t}
           </li>
         ))}
@@ -333,7 +336,10 @@ function Home() {
       </section>
 
       {/* Services */}
-      <section id="services" className="relative py-24 md:py-32 overflow-hidden">
+      <section
+        id="services"
+        className="relative py-24 md:py-32 overflow-hidden section-light bg-background text-foreground"
+      >
         <div className="max-w-6xl mx-auto px-6">
           <Reveal>
             <Label>What we do</Label>
@@ -354,8 +360,8 @@ function Home() {
             </Reveal>
             <Reveal delay={300} className="lg:col-span-1 lg:row-span-1">
               <div className="bento-card h-full flex flex-col justify-center items-center text-center min-h-[160px]">
-                <p className="text-3xl font-bold text-primary">4</p>
-                <p className="mt-2 text-sm text-muted-foreground">core capabilities</p>
+                <p className="text-3xl font-bold text-white">4</p>
+                <p className="mt-2 text-sm text-white/70">core capabilities</p>
               </div>
             </Reveal>
           </div>
