@@ -76,7 +76,7 @@ const projects = [
       "Pitched it to Sasin's director as a 360-degree student solution",
       "Scope expanded from a chatbot to a full AI implementation roadmap for the school",
     ],
-    result: "Offered a formal role from the institute in Bangkok.",
+    result: "Offered the role of AI Officer to build out the institute's AI capacity.",
   },
   {
     number: "02",
@@ -93,7 +93,7 @@ const projects = [
       "Maintained consistent brand voice across platforms over a three-year period",
     ],
     result:
-      "Grew Sundora's Instagram from 12,000 to 23,000 followers — nearly doubling their audience through consistent, strategic content.",
+      "Nearly doubled Sundora's Instagram following — 12,000 to 23,000 — over three years of consistent, strategic content.",
   },
   {
     number: "03",
@@ -110,7 +110,7 @@ const projects = [
       "Recommended synced subtitle highlighting to increase viewer retention on short-form video",
     ],
     result:
-      "A platform-specific strategy that shifts Sasin's social content from broadcasting to engaging — built around how people actually consume content on each platform.",
+      "A platform-by-platform playbook that turns Sasin's content into something people engage with — newer content now follows it.",
   },
 ];
 
@@ -307,7 +307,7 @@ function ProjectCarousel() {
           </div>
 
           <div className="rounded-xl bg-white p-6">
-            <p className="text-[11px] tracking-label uppercase text-black/60 mb-3">Key result</p>
+            <p className="text-[11px] tracking-label uppercase font-bold text-[#3c067a] mb-3">Key result</p>
             <p className="text-base md:text-lg text-black leading-snug font-medium">
               {project.result}
             </p>
