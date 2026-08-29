@@ -273,15 +273,15 @@ function ProjectCarousel() {
               {project.category}
             </span>
           </div>
-          <div className="flex flex-col items-center gap-2 shrink-0">
-            <div className="h-36 w-36 md:h-44 md:w-44 flex items-center justify-center">
+          <div className="flex flex-col items-center gap-3 shrink-0">
+            <div className="h-24 md:h-32 flex items-center justify-center">
               <img
                 src={project.logo}
                 alt=""
-                className="h-full w-full object-contain"
+                className="h-full w-auto object-contain"
               />
             </div>
-            <p className="text-[11px] text-white/60 whitespace-nowrap">{project.location}</p>
+            <p className="text-[11px] text-white whitespace-nowrap">{project.location}</p>
           </div>
         </div>
 
