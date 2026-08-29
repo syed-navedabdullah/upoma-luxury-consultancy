@@ -65,6 +65,8 @@ const projects = [
   {
     number: "01",
     category: "AI Solutions",
+    logo: "/logos/sasin.svg",
+    location: "Bangkok, Thailand",
     title: "Sasa — AI Assistant for Sasin MBA",
     summary:
       "Sasin School of Management had a knowledge base buried in their student information system — a static FAQ that students rarely used because it was hard to navigate. I saw the gap, built a working prototype of an AI assistant from scratch, and pitched it to the administration as a tool that could answer student queries instantly using the university's own data.",
@@ -79,6 +81,8 @@ const projects = [
   {
     number: "02",
     category: "Social Media Management",
+    logo: "/logos/sundora.svg",
+    location: "Dhaka, Bangladesh",
     title: "Sundora — Three Years of Digital Growth",
     summary:
       "Sundora is a Bangladeshi beauty and lifestyle brand with management based in Dubai. I was their on-ground digital presence for three years — creating content, managing social channels, and running campaigns while coordinating remotely with the leadership team.",
@@ -94,6 +98,8 @@ const projects = [
   {
     number: "03",
     category: "Digital Marketing Strategy",
+    logo: "/logos/sasin.svg",
+    location: "Bangkok, Thailand",
     title: "Sasin Social Media Strategy — Platform Revamp Proposal",
     summary:
       "Sasin's social media presence was corporate-heavy — the kind of content that works on LinkedIn but falls flat on Instagram and TikTok. I independently developed a revamp strategy focused on making the content work for each platform's audience and behaviour.",
@@ -248,69 +254,98 @@ function ServiceCard({
   );
 }
 
-function ProjectPanel({
-  project,
-  variant = "surface",
-}: {
-  project: (typeof projects)[0];
-  variant?: "surface" | "tint";
-}) {
+function ProjectCarousel() {
+  const [index, setIndex] = useState(0);
+  const project = projects[index];
+
+  const go = (next: number) => setIndex((next + projects.length) % projects.length);
+
   return (
-    <div
-      className={`border-t border-border/60 ${
-        variant === "tint" ? "bg-tint" : "bg-surface"
-      }`}
-    >
-      <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
-        <Reveal>
-          <div className="flex items-center gap-4 mb-6">
-            <span className="text-[11px] tracking-label uppercase text-muted-foreground font-medium">
+    <div className="mt-12">
+      <div key={project.number} className="bento-card animate-card-fade p-8 md:p-12">
+        <div className="flex items-start justify-between gap-6 mb-6">
+          <div className="flex items-center gap-4 flex-1">
+            <span className="text-[11px] tracking-label uppercase text-white/60 font-medium">
               {project.number}
             </span>
-            <span className="h-px flex-1 max-w-[120px] bg-border" />
-            <span className="tag">{project.category}</span>
+            <span className="h-px flex-1 max-w-[120px] bg-white/20" />
+            <span className="inline-flex rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-medium text-white">
+              {project.category}
+            </span>
           </div>
-        </Reveal>
-
-        <Reveal delay={100}>
-          <h2 className="font-serif text-3xl md:text-5xl text-foreground max-w-4xl">
-            {project.title}
-          </h2>
-        </Reveal>
-
-        <Reveal delay={150}>
-          <p className="mt-6 text-[15px] leading-relaxed text-muted-foreground text-pretty max-w-3xl">
-            {project.summary}
-          </p>
-        </Reveal>
-
-        <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-16">
-          <Reveal delay={200}>
-            <div>
-              <p className="text-[11px] tracking-label uppercase text-primary mb-5 font-semibold">
-                What I did
-              </p>
-              <ul className="space-y-4">
-                {project.did.map((item, i) => (
-                  <li key={i} className="flex gap-3 text-[15px] text-muted-foreground">
-                    <span className="text-primary mt-1">—</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+          <div className="flex flex-col items-center gap-2 shrink-0">
+            <div className="h-12 w-12 rounded-lg bg-white p-2 flex items-center justify-center">
+              <img
+                src={project.logo}
+                alt=""
+                className="h-full w-full object-contain"
+              />
             </div>
-          </Reveal>
+            <p className="text-[11px] text-white/60 whitespace-nowrap">{project.location}</p>
+          </div>
+        </div>
 
-          <Reveal delay={250}>
-            <div className="rounded-xl bg-primary-deep p-6 md:p-8">
-              <p className="text-[11px] tracking-label uppercase text-primary-foreground/70 mb-3">
-                Key result
-              </p>
-              <p className="text-lg md:text-xl text-primary-foreground leading-snug font-medium">
-                {project.result}
-              </p>
-            </div>
-          </Reveal>
+        <h3 className="font-serif text-2xl md:text-4xl text-white max-w-3xl">{project.title}</h3>
+
+        <p className="mt-5 text-[15px] leading-relaxed text-white/70 text-pretty max-w-3xl">
+          {project.summary}
+        </p>
+
+        <div className="mt-8 grid gap-8 lg:grid-cols-2 lg:gap-12">
+          <div>
+            <p className="text-[11px] tracking-label uppercase text-white/50 mb-4 font-semibold">
+              What I did
+            </p>
+            <ul className="space-y-3">
+              {project.did.map((item, i) => (
+                <li key={i} className="flex gap-3 text-[14px] text-white/70">
+                  <span className="text-white/50 mt-1">—</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="rounded-xl bg-white/10 p-6">
+            <p className="text-[11px] tracking-label uppercase text-white/60 mb-3">Key result</p>
+            <p className="text-base md:text-lg text-white leading-snug font-medium">
+              {project.result}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-6 flex items-center justify-between">
+        <div className="flex gap-2">
+          {projects.map((p, i) => (
+            <button
+              key={p.number}
+              type="button"
+              aria-label={`Show project ${i + 1}`}
+              onClick={() => setIndex(i)}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                i === index ? "w-8 bg-primary" : "w-4 bg-border hover:bg-primary/50"
+              }`}
+            />
+          ))}
+        </div>
+        <div className="flex gap-3">
+          <button
+            type="button"
+            aria-label="Previous project"
+            onClick={() => go(index - 1)}
+            className="h-10 w-10 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
+          >
+            ←
+          </button>
+          <button
+            type="button"
+            aria-label="Next project"
+            onClick={() => go(index + 1)}
+            className="h-10 w-10 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
+          >
+            →
+          </button>
         </div>
       </div>
     </div>
@@ -407,16 +442,12 @@ function Home() {
       </section>
 
       {/* Work */}
-      <section id="work">
-        <div className="max-w-6xl mx-auto px-6 pt-24 md:pt-32">
+      <section id="work" className="relative py-24 md:py-32 overflow-hidden section-light bg-background text-foreground">
+        <div className="max-w-6xl mx-auto px-6">
           <Reveal>
             <Label>Selected work</Label>
           </Reveal>
-        </div>
-        <div className="mt-12">
-          {projects.map((p, i) => (
-            <ProjectPanel key={p.number} project={p} variant={i % 2 === 0 ? "surface" : "tint"} />
-          ))}
+          <ProjectCarousel />
         </div>
       </section>
 
