@@ -4,23 +4,42 @@ import founder1 from "@/assets/founder-1.png.asset.json";
 import founder2 from "@/assets/founder-2.jpg.asset.json";
 import { useInView } from "@/hooks/use-in-view";
 
-import heroSunset from "@/assets/hero/bangkok-sunset.jpg";
-import heroBridge from "@/assets/hero/dhaka-bridge.jpg";
-import heroFlyover from "@/assets/hero/dhaka-flyover.jpg";
-import heroPark from "@/assets/hero/bangkok-park.jpg";
+import heroSunsetAsset from "@/assets/hero/bangkok-sunset.jpg.asset.json";
+import heroBridgeAsset from "@/assets/hero/dhaka-bridge.jpg.asset.json";
+import heroFlyoverAsset from "@/assets/hero/dhaka-flyover.jpg.asset.json";
+import heroParkAsset from "@/assets/hero/bangkok-park.jpg.asset.json";
 
-import toolOpenai from "@/assets/tools/openai.jpg";
-import toolAnthropic from "@/assets/tools/anthropic.png";
-import toolGemini from "@/assets/tools/gemini.webp";
-import toolDeepseek from "@/assets/tools/deepseek.webp";
-import toolQwen from "@/assets/tools/qwen.png";
-import toolKimi from "@/assets/tools/kimi.webp";
-import toolManus from "@/assets/tools/manus.png";
-import toolMimo from "@/assets/tools/mimo.jpg";
-import toolLovable from "@/assets/tools/lovable.jpg";
+import toolOpenaiAsset from "@/assets/tools/openai.jpg.asset.json";
+import toolAnthropicAsset from "@/assets/tools/anthropic.png.asset.json";
+import toolGeminiAsset from "@/assets/tools/gemini.webp.asset.json";
+import toolDeepseekAsset from "@/assets/tools/deepseek.webp.asset.json";
+import toolQwenAsset from "@/assets/tools/qwen.png.asset.json";
+import toolKimiAsset from "@/assets/tools/kimi.webp.asset.json";
+import toolManusAsset from "@/assets/tools/manus.png.asset.json";
+import toolMimoAsset from "@/assets/tools/mimo.jpg.asset.json";
+import toolLovableAsset from "@/assets/tools/lovable.jpg.asset.json";
 
-import logoSasin from "@/assets/logos/sasin.svg";
-import logoSundora from "@/assets/logos/sundora.svg";
+import logoSasinAsset from "@/assets/logos/sasin.svg.asset.json";
+import logoSundoraAsset from "@/assets/logos/sundora.svg.asset.json";
+
+const heroSunset = heroSunsetAsset.url;
+const heroBridge = heroBridgeAsset.url;
+const heroFlyover = heroFlyoverAsset.url;
+const heroPark = heroParkAsset.url;
+
+const toolOpenai = toolOpenaiAsset.url;
+const toolAnthropic = toolAnthropicAsset.url;
+const toolGemini = toolGeminiAsset.url;
+const toolDeepseek = toolDeepseekAsset.url;
+const toolQwen = toolQwenAsset.url;
+const toolKimi = toolKimiAsset.url;
+const toolManus = toolManusAsset.url;
+const toolMimo = toolMimoAsset.url;
+const toolLovable = toolLovableAsset.url;
+
+const logoSasin = logoSasinAsset.url;
+const logoSundora = logoSundoraAsset.url;
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
