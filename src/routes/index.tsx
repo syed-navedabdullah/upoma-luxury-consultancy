@@ -119,6 +119,13 @@ const founderPhotos = [
   { url: founder2.url, alt: "Naved Abdullah presenting at Sasin School of Management" },
 ];
 
+const heroPhotos = [
+  "/hero/bangkok-sunset.jpg",
+  "/hero/dhaka-bridge.jpg",
+  "/hero/dhaka-flyover.jpg",
+  "/hero/bangkok-park.jpg",
+];
+
 function Label({ children }: { children: React.ReactNode }) {
   return (
     <p className="text-[11px] tracking-label uppercase text-primary font-semibold">{children}</p>
@@ -187,6 +194,31 @@ function FounderCarousel() {
           />
         ))}
       </div>
+    </div>
+  );
+}
+
+function HeroCarousel() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setIndex((i) => (i + 1) % heroPhotos.length), 6000);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <div className="absolute inset-0 -z-10" aria-hidden="true">
+      {heroPhotos.map((url, i) => (
+        <img
+          key={url}
+          src={url}
+          alt=""
+          loading={i === 0 ? "eager" : "lazy"}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+            i === index ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
     </div>
   );
 }
@@ -358,18 +390,20 @@ function Home() {
   return (
     <div id="top">
       {/* Hero */}
-      <section className="relative overflow-hidden section-light bg-background text-foreground">
-        <div className="max-w-6xl mx-auto px-6 pt-16 pb-20 md:pt-28 md:pb-32">
+      <section className="relative overflow-hidden">
+        <HeroCarousel />
+        <div className="absolute inset-0 bg-black/75" />
+        <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-20 md:pt-28 md:pb-32">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-10 items-start">
             <div className="lg:col-span-7">
               <Reveal>
-                <h1 className="font-serif text-[clamp(2.6rem,7vw,5.5rem)] leading-[1.02] text-balance">
+                <h1 className="font-serif text-[clamp(2.6rem,7vw,5.5rem)] leading-[1.02] text-balance text-white">
                   Digital strategy and AI solutions for brands that build{" "}
-                  <span className="text-primary">forward</span>.
+                  <span className="text-[#c4b5fd]">forward</span>.
                 </h1>
               </Reveal>
               <Reveal delay={100}>
-                <p className="mt-8 max-w-2xl text-lg text-muted-foreground leading-relaxed text-pretty">
+                <p className="mt-8 max-w-2xl text-lg text-white/70 leading-relaxed text-pretty">
                   Upoma is a Dhaka-based consultancy that builds intelligent systems, crafts
                   digital strategies, and helps brands operate smarter.
                 </p>
