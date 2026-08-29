@@ -274,7 +274,7 @@ function ProjectCarousel() {
             </span>
           </div>
           <div className="flex flex-col items-center gap-2 shrink-0">
-            <div className="h-12 w-12 rounded-lg bg-white p-2 flex items-center justify-center">
+            <div className="h-24 w-24 md:h-28 md:w-28 flex items-center justify-center">
               <img
                 src={project.logo}
                 alt=""
