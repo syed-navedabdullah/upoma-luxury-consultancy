@@ -4,6 +4,24 @@ import founder1 from "@/assets/founder-1.png.asset.json";
 import founder2 from "@/assets/founder-2.jpg.asset.json";
 import { useInView } from "@/hooks/use-in-view";
 
+import heroSunset from "@/assets/hero/bangkok-sunset.jpg";
+import heroBridge from "@/assets/hero/dhaka-bridge.jpg";
+import heroFlyover from "@/assets/hero/dhaka-flyover.jpg";
+import heroPark from "@/assets/hero/bangkok-park.jpg";
+
+import toolOpenai from "@/assets/tools/openai.jpg";
+import toolAnthropic from "@/assets/tools/anthropic.png";
+import toolGemini from "@/assets/tools/gemini.webp";
+import toolDeepseek from "@/assets/tools/deepseek.webp";
+import toolQwen from "@/assets/tools/qwen.png";
+import toolKimi from "@/assets/tools/kimi.webp";
+import toolManus from "@/assets/tools/manus.png";
+import toolMimo from "@/assets/tools/mimo.jpg";
+import toolLovable from "@/assets/tools/lovable.jpg";
+
+import logoSasin from "@/assets/logos/sasin.svg";
+import logoSundora from "@/assets/logos/sundora.svg";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -33,15 +51,15 @@ const services = [
     tags: ["AI Assistants", "Workflow Automation", "Chatbots", "Knowledge Bases", "Content AI"],
     featured: true,
     tools: [
-      { name: "OpenAI", logo: "/tools/openai.jpg" },
-      { name: "Anthropic", logo: "/tools/anthropic.png" },
-      { name: "Gemini", logo: "/tools/gemini.webp" },
-      { name: "DeepSeek", logo: "/tools/deepseek.webp" },
-      { name: "Qwen", logo: "/tools/qwen.png" },
-      { name: "Kimi", logo: "/tools/kimi.webp" },
-      { name: "Manus", logo: "/tools/manus.png" },
-      { name: "Mimo", logo: "/tools/mimo.jpg" },
-      { name: "Lovable", logo: "/tools/lovable.jpg" },
+      { name: "OpenAI", logo: toolOpenai },
+      { name: "Anthropic", logo: toolAnthropic },
+      { name: "Gemini", logo: toolGemini },
+      { name: "DeepSeek", logo: toolDeepseek },
+      { name: "Qwen", logo: toolQwen },
+      { name: "Kimi", logo: toolKimi },
+      { name: "Manus", logo: toolManus },
+      { name: "Mimo", logo: toolMimo },
+      { name: "Lovable", logo: toolLovable },
     ],
   },
   {
@@ -65,7 +83,7 @@ const projects = [
   {
     number: "01",
     category: "AI Solutions",
-    logo: "/logos/sasin.svg",
+    logo: logoSasin,
     location: "Bangkok, Thailand",
     title: "Sasa — AI Assistant for Sasin MBA",
     summary:
@@ -81,7 +99,7 @@ const projects = [
   {
     number: "02",
     category: "Social Media Management",
-    logo: "/logos/sundora.svg",
+    logo: logoSundora,
     location: "Dhaka, Bangladesh",
     title: "Sundora — Three Years of Digital Growth",
     summary:
@@ -98,7 +116,7 @@ const projects = [
   {
     number: "03",
     category: "Digital Marketing Strategy",
-    logo: "/logos/sasin.svg",
+    logo: logoSasin,
     location: "Bangkok, Thailand",
     title: "Sasin Social Media Strategy — Platform Revamp Proposal",
     summary:
@@ -120,10 +138,10 @@ const founderPhotos = [
 ];
 
 const heroPhotos = [
-  "/hero/bangkok-sunset.jpg",
-  "/hero/dhaka-bridge.jpg",
-  "/hero/dhaka-flyover.jpg",
-  "/hero/bangkok-park.jpg",
+  heroSunset,
+  heroBridge,
+  heroFlyover,
+  heroPark,
 ];
 
 function Label({ children }: { children: React.ReactNode }) {
