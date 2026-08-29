@@ -85,7 +85,7 @@ const projects = [
     location: "Dhaka, Bangladesh",
     title: "Sundora — Three Years of Digital Growth",
     summary:
-      "Sundora is a Bangladeshi beauty and lifestyle brand with management based in Dubai. I was their on-ground digital presence for three years — creating content, managing social channels, and running campaigns while coordinating remotely with the leadership team.",
+      "Sundora is a Bangladeshi beauty and lifestyle brand. I was their on-ground digital presence for three years — creating content, managing social channels, and running campaigns while coordinating remotely with the leadership team.",
     did: [
       "Managed all social media content creation and publishing",
       "Ran marketing communications across digital channels",
@@ -274,11 +274,11 @@ function ProjectCarousel() {
             </span>
           </div>
           <div className="flex flex-col items-center gap-3 shrink-0">
-            <div className="h-24 md:h-32 flex items-center justify-center">
+            <div className="w-28 md:w-36 flex items-center justify-center">
               <img
                 src={project.logo}
                 alt=""
-                className="h-full w-auto object-contain"
+                className="w-full h-auto object-contain"
               />
             </div>
             <p className="text-[11px] text-white whitespace-nowrap">{project.location}</p>
@@ -306,9 +306,9 @@ function ProjectCarousel() {
             </ul>
           </div>
 
-          <div className="rounded-xl bg-white/10 p-6">
-            <p className="text-[11px] tracking-label uppercase text-white/60 mb-3">Key result</p>
-            <p className="text-base md:text-lg text-white leading-snug font-medium">
+          <div className="rounded-xl bg-white p-6">
+            <p className="text-[11px] tracking-label uppercase text-black/60 mb-3">Key result</p>
+            <p className="text-base md:text-lg text-black leading-snug font-medium">
               {project.result}
             </p>
           </div>
