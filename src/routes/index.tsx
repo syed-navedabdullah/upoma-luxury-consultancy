@@ -32,6 +32,12 @@ const services = [
     body: "AI tools tailored to your business — from intelligent assistants to automated workflows. We work across both American and Chinese AI platforms, including OpenAI, Anthropic, Kimi, and Mimo, to find the right fit for each problem. Whether it's a customer-facing chatbot, an internal knowledge base, or a content workflow powered by AI, we build practical solutions that work from day one.",
     tags: ["AI Assistants", "Workflow Automation", "Chatbots", "Knowledge Bases", "Content AI"],
     featured: true,
+    tools: [
+      { name: "OpenAI", logo: "/tools/openai.svg" },
+      { name: "Anthropic", logo: "/tools/anthropic.svg" },
+      { name: "Kimi", logo: "/tools/kimi.svg" },
+      { name: "Mimo", logo: "/tools/mimo.svg" },
+    ],
   },
   {
     title: "Digital Marketing Strategy",
@@ -193,7 +199,11 @@ function ServiceCard({
   return (
     <article className={`bento-card flex flex-col ${className}`}>
       <h2 className="font-serif text-2xl md:text-3xl text-white">{service.title}</h2>
-      <p className="mt-4 text-[15px] leading-relaxed text-white/70 flex-1 text-pretty">
+      <p
+        className={`mt-4 leading-relaxed text-white/70 flex-1 text-pretty ${
+          service.featured ? "text-lg md:text-xl" : "text-[15px]"
+        }`}
+      >
         {service.body}
       </p>
       <ul className="mt-7 flex flex-wrap gap-2">
@@ -206,6 +216,29 @@ function ServiceCard({
           </li>
         ))}
       </ul>
+      {service.tools && (
+        <div className="mt-7">
+          <p className="text-[11px] tracking-label uppercase text-white/50 mb-3">
+            Tools we work with
+          </p>
+          <div className="flex flex-wrap items-center gap-3">
+            {service.tools.map((tool) => (
+              <div
+                key={tool.name}
+                title={tool.name}
+                className="flex h-12 w-12 items-center justify-center rounded-lg bg-white p-2.5"
+              >
+                <img
+                  src={tool.logo}
+                  alt={tool.name}
+                  className="h-full w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </article>
   );
 }
