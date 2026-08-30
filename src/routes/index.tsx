@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Linkedin } from "lucide-react";
+import { DotGrid } from "@/components/site/DotGrid";
 import founder1 from "@/assets/founder-1.png";
 import founder2 from "@/assets/founder-2.jpg";
 import { useInView } from "@/hooks/use-in-view";
@@ -388,14 +389,8 @@ function Home() {
     <div id="top">
       {/* Hero */}
       <section className="relative overflow-hidden section-light bg-background text-foreground">
-        {/* Geometric accent shapes */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 hidden md:block">
-          <svg className="absolute -top-16 -right-20 w-[340px] h-[340px] opacity-[0.04] animate-float-slow" viewBox="0 0 340 340"><circle cx="170" cy="170" r="170" fill="currentColor" className="text-primary" /></svg>
-          <svg className="absolute bottom-10 -left-12 w-[140px] h-[140px] opacity-[0.03] animate-float" viewBox="0 0 140 140"><circle cx="70" cy="70" r="70" fill="currentColor" className="text-primary" /></svg>
-          <svg className="absolute top-1/3 left-1/4 w-[260px] h-[100px] opacity-[0.03] animate-float-slow" style={{ animationDelay: "2s" }} viewBox="0 0 260 100"><rect x="0" y="30" width="260" height="40" rx="20" fill="currentColor" className="text-primary" transform="rotate(-12 130 50)" /></svg>
-          <svg className="absolute top-20 left-[55%] w-3 h-3 opacity-[0.12]" viewBox="0 0 12 12"><circle cx="6" cy="6" r="6" fill="currentColor" className="text-primary" /></svg>
-          <svg className="absolute bottom-24 right-[30%] w-2 h-2 opacity-[0.10]" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="currentColor" className="text-primary" /></svg>
-          <svg className="absolute top-[60%] left-[10%] w-2.5 h-2.5 opacity-[0.08] animate-float" style={{ animationDelay: "1s" }} viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="currentColor" className="text-primary" /></svg>
+        <div className="hidden md:block absolute inset-0 z-0">
+          <DotGrid />
         </div>
         <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-20 md:pt-28 md:pb-32">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-10 items-start">
