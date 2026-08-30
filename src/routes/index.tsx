@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { Linkedin } from "lucide-react";
 import founder1 from "@/assets/founder-1.png";
 import founder2 from "@/assets/founder-2.jpg";
 import { useInView } from "@/hooks/use-in-view";
@@ -577,13 +578,16 @@ function Home() {
               </Reveal>
               <Reveal delay={150}>
                 <p className="mt-8 text-[11px] tracking-label uppercase text-primary font-semibold">
-                  Email
+                  Connect
                 </p>
                 <a
-                  href="mailto:syednaved.abdullah@proton.me"
-                  className="mt-2 inline-block text-sm text-foreground hover:text-primary transition-colors whitespace-nowrap"
+                  href="https://www.linkedin.com/in/naved-abdullah-675401174"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Naved Abdullah on LinkedIn"
+                  className="mt-3 inline-flex items-center justify-center h-10 w-10 rounded-md border border-border text-foreground hover:border-primary hover:text-primary transition-colors"
                 >
-                  syednaved.abdullah@proton.me
+                  <Linkedin className="h-5 w-5" />
                 </a>
               </Reveal>
             </div>
