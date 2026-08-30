@@ -135,9 +135,17 @@ const founderPhotos = [
   { url: founder2, alt: "Naved Abdullah presenting at Sasin School of Management" },
 ];
 
+function SectionDots() {
+  return (
+    <div aria-hidden="true" className="hidden md:block absolute inset-0 z-0">
+      <DotGrid />
+    </div>
+  );
+}
+
 function Label({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[11px] tracking-label uppercase text-primary font-semibold">{children}</p>
+    <p className="text-base md:text-lg tracking-label uppercase text-primary font-bold">{children}</p>
   );
 }
 
@@ -429,9 +437,7 @@ function Home() {
     <div id="top">
       {/* Hero */}
       <section className="relative overflow-hidden section-light bg-background text-foreground">
-        <div className="hidden md:block absolute inset-0 z-0">
-          <DotGrid />
-        </div>
+        <SectionDots />
         <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-20 md:pt-28 md:pb-32">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-10 items-start">
             <div className="lg:col-span-7">
@@ -501,7 +507,8 @@ function Home() {
         id="services"
         className="relative py-24 md:py-32 overflow-hidden section-light bg-background text-foreground"
       >
-        <div className="max-w-6xl mx-auto px-6">
+        <SectionDots />
+        <div className="relative z-10 max-w-6xl mx-auto px-6">
           <Reveal>
             <Label>What we do</Label>
           </Reveal>
@@ -531,7 +538,8 @@ function Home() {
 
       {/* Work */}
       <section id="work" className="relative py-24 md:py-32 overflow-hidden section-light bg-background text-foreground">
-        <div className="max-w-6xl mx-auto px-6">
+        <SectionDots />
+        <div className="relative z-10 max-w-6xl mx-auto px-6">
           <Reveal>
             <Label>Selected work</Label>
           </Reveal>
@@ -541,7 +549,8 @@ function Home() {
 
       {/* About */}
       <section id="about" className="relative py-24 md:py-32 overflow-hidden section-light bg-background text-foreground">
-        <div className="max-w-6xl mx-auto px-6">
+        <SectionDots />
+        <div className="relative z-10 max-w-6xl mx-auto px-6">
           <Reveal>
             <Label>About</Label>
           </Reveal>
@@ -606,9 +615,10 @@ function Home() {
       {/* Contact */}
       <section
         id="contact"
-        className="relative py-24 md:py-32 border-t border-border/60 section-light bg-background text-foreground"
+        className="relative py-24 md:py-32 overflow-hidden border-t border-border/60 section-light bg-background text-foreground"
       >
-        <div className="max-w-6xl mx-auto px-6">
+        <SectionDots />
+        <div className="relative z-10 max-w-6xl mx-auto px-6">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <Reveal>
