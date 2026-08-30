@@ -214,12 +214,12 @@ function ProcessCard({
   description: string;
 }) {
   return (
-    <div className="bento-card flex flex-col justify-between min-h-[120px]">
+    <div className="bento-card flex flex-col min-h-[120px]">
       <p className="text-[11px] tracking-label uppercase text-white/70">{number}</p>
-      <div className="mt-3">
-        <p className="text-lg md:text-xl font-bold text-white">{title}</p>
-        <p className="text-xs text-white/70 mt-1.5 leading-relaxed">{description}</p>
-      </div>
+      <p className="text-lg md:text-xl font-bold text-white leading-tight mt-3 min-h-[2.5rem] md:min-h-[3rem]">
+        {title}
+      </p>
+      <p className="text-xs text-white/70 mt-1.5 leading-relaxed">{description}</p>
     </div>
   );
 }
