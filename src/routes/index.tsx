@@ -204,11 +204,22 @@ function FounderCarousel() {
   );
 }
 
-function StatCard({ label, value }: { label: string; value: string }) {
+function ProcessCard({
+  number,
+  title,
+  description,
+}: {
+  number: string;
+  title: string;
+  description: string;
+}) {
   return (
     <div className="bento-card flex flex-col justify-between min-h-[120px]">
-      <p className="text-[11px] tracking-label uppercase text-white/70">{label}</p>
-      <p className="text-xl md:text-2xl font-bold text-white mt-3">{value}</p>
+      <p className="text-[11px] tracking-label uppercase text-white/70">{number}</p>
+      <div className="mt-3">
+        <p className="text-lg md:text-xl font-bold text-white">{title}</p>
+        <p className="text-xs text-white/70 mt-1.5 leading-relaxed">{description}</p>
+      </div>
     </div>
   );
 }
@@ -412,12 +423,26 @@ function Home() {
             <div className="lg:col-span-5">
               <Reveal delay={250}>
                 <div className="grid grid-cols-2 gap-3">
-                  <StatCard label="Location" value="Dhaka, Bangkok" />
-                  <StatCard label="Focus" value="AI + Strategy" />
-                  <StatCard label="Launch" value="2026" />
-                  <div className="bento-card flex items-center justify-center min-h-[120px]">
-                    <span className="text-4xl font-bold text-white animate-float">উ</span>
-                  </div>
+                  <ProcessCard
+                    number="01"
+                    title="Discovery"
+                    description="Audit what you have, understand what's not working."
+                  />
+                  <ProcessCard
+                    number="02"
+                    title="Strategy"
+                    description="Figure out what to do, in what order, with what tools."
+                  />
+                  <ProcessCard
+                    number="03"
+                    title="Build & Launch"
+                    description="Set it up, go live, adjust as we go."
+                  />
+                  <ProcessCard
+                    number="04"
+                    title="Handoff & Training"
+                    description="Your team learns to run it without us."
+                  />
                 </div>
               </Reveal>
             </div>
