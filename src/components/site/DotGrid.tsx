@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
 
 const SPACING = 32;
-const BASE_RADIUS = 1.5;
-const MAX_RADIUS = 3.5;
-const BASE_ALPHA = 0.06;
-const MAX_ALPHA = 0.28;
-const INTERACT_RADIUS = 120;
+const BASE_RADIUS = 2;
+const MAX_RADIUS = 5;
+const BASE_ALPHA = 0.16;
+const MAX_ALPHA = 0.55;
+const INTERACT_RADIUS = 150;
 const DOT_COLOR = "60, 6, 122";
 
 export function DotGrid() {
