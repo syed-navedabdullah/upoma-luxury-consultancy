@@ -172,8 +172,28 @@
   animation: card-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+@keyframes shine {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+@utility text-shine {
+  background: linear-gradient(100deg, var(--primary) 42%, #b98cf0 50%, var(--primary) 58%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 4.5s ease-in-out 1.2s infinite;
+}
+
 @layer utilities {
   .text-balance { text-wrap: balance; }
   .text-pretty  { text-wrap: pretty; }
   .tracking-label { letter-spacing: 0.18em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-shine {
+    animation: none;
+  }
 }

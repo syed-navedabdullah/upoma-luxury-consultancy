@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Linkedin } from "lucide-react";
 import { DotGrid } from "@/components/site/DotGrid";
+import { MagneticButton } from "@/components/site/MagneticButton";
 import founder1 from "@/assets/founder-1.png";
 import founder2 from "@/assets/founder-2.jpg";
 import { useInView } from "@/hooks/use-in-view";
@@ -163,6 +164,45 @@ function Reveal({
     >
       {children}
     </div>
+  );
+}
+
+function AnimatedHeadline() {
+  const [mounted, setMounted] = useState(false);
+  const [reduce, setReduce] = useState(false);
+
+  useEffect(() => {
+    setReduce(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const id = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  const words = ["Strategy", "you", "can", "see", "working"];
+  const shown = mounted || reduce;
+
+  return (
+    <h1 className="font-serif text-[clamp(2.6rem,7vw,5.5rem)] leading-[1.02] text-balance text-foreground">
+      {words.map((word, i) => {
+        const last = i === words.length - 1;
+        return (
+          <span
+            key={word}
+            className="inline-block"
+            style={{
+              opacity: shown ? 1 : 0,
+              transform: shown ? "none" : "translateY(0.35em)",
+              transition: reduce
+                ? "none"
+                : "opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1)",
+              transitionDelay: reduce ? "0ms" : `${i * 90}ms`,
+            }}
+          >
+            <span className={last ? "text-shine" : undefined}>{word}</span>
+            {last ? "." : " "}
+          </span>
+        );
+      })}
+    </h1>
   );
 }
 
@@ -395,12 +435,7 @@ function Home() {
         <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-20 md:pt-28 md:pb-32">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-10 items-start">
             <div className="lg:col-span-7">
-              <Reveal>
-                <h1 className="font-serif text-[clamp(2.6rem,7vw,5.5rem)] leading-[1.02] text-balance text-foreground">
-                  Strategy you can see{" "}
-                  <span className="text-primary">working</span>.
-                </h1>
-              </Reveal>
+              <AnimatedHeadline />
               <Reveal delay={100}>
                 <p className="mt-8 max-w-2xl text-lg text-muted-foreground leading-relaxed text-pretty">
                   AI tools, digital strategy, and social media systems — plus branding when you
@@ -409,18 +444,18 @@ function Home() {
               </Reveal>
               <Reveal delay={200}>
                 <div className="mt-10 flex flex-wrap gap-4">
-                  <a
+                  <MagneticButton
                     href="#work"
-                    className="inline-flex items-center rounded-md bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition-all"
+                    className="inline-flex items-center rounded-md bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground hover:opacity-90"
                   >
                     View Work
-                  </a>
-                  <a
+                  </MagneticButton>
+                  <MagneticButton
                     href="#contact"
-                    className="inline-flex items-center rounded-md border border-border px-7 py-3.5 text-sm font-medium text-foreground hover:border-primary hover:text-primary transition-colors"
+                    className="inline-flex items-center rounded-md border border-border px-7 py-3.5 text-sm font-medium text-foreground hover:border-primary hover:text-primary"
                   >
                     Get in Touch
-                  </a>
+                  </MagneticButton>
                 </div>
               </Reveal>
             </div>
