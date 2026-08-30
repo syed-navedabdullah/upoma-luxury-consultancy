@@ -149,6 +149,15 @@
   animation: float 5s ease-in-out infinite;
 }
 
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+
+@utility animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
 @utility animate-line-reveal {
   animation: line-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transform-origin: left;
