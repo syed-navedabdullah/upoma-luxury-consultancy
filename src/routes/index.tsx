@@ -395,14 +395,14 @@ function Home() {
             <div className="lg:col-span-7">
               <Reveal>
                 <h1 className="font-serif text-[clamp(2.6rem,7vw,5.5rem)] leading-[1.02] text-balance text-foreground">
-                  Digital strategy and AI solutions for brands that build{" "}
-                  <span className="text-primary">forward</span>.
+                  Strategy you can see{" "}
+                  <span className="text-primary">working</span>.
                 </h1>
               </Reveal>
               <Reveal delay={100}>
                 <p className="mt-8 max-w-2xl text-lg text-muted-foreground leading-relaxed text-pretty">
-                  Upoma is a Dhaka-based consultancy that builds intelligent systems, crafts
-                  digital strategies, and helps brands operate smarter.
+                  AI tools, digital strategy, and social media systems — plus branding when you
+                  need it.
                 </p>
               </Reveal>
               <Reveal delay={200}>
