@@ -216,7 +216,7 @@ function ProcessCard({
   description: string;
 }) {
   return (
-    <div className="bento-card flex flex-col min-h-[120px] hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20">
+    <div className="bento-card flex flex-col h-full min-h-[120px] hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20">
       <p className="text-[11px] tracking-label uppercase text-white/70">{number}</p>
       <p className="text-lg md:text-xl font-bold text-white leading-tight mt-3 min-h-[2.5rem] md:min-h-[3rem]">
         {title}
@@ -427,28 +427,28 @@ function Home() {
 
             <div className="lg:col-span-5">
               <div className="grid grid-cols-2 gap-3">
-                <Reveal delay={200}>
+                <Reveal delay={200} className="h-full">
                   <ProcessCard
                     number="01"
                     title="Discovery"
                     description="Audit what you have, understand what's not working."
                   />
                 </Reveal>
-                <Reveal delay={300}>
+                <Reveal delay={300} className="h-full">
                   <ProcessCard
                     number="02"
                     title="Strategy"
                     description="Figure out what to do, in what order, with what tools."
                   />
                 </Reveal>
-                <Reveal delay={400}>
+                <Reveal delay={400} className="h-full">
                   <ProcessCard
                     number="03"
                     title="Build & Launch"
                     description="Set it up, go live, adjust as we go."
                   />
                 </Reveal>
-                <Reveal delay={500}>
+                <Reveal delay={500} className="h-full">
                   <ProcessCard
                     number="04"
                     title="Handoff & Training"

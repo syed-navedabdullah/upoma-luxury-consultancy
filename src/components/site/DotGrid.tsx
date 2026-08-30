@@ -6,12 +6,11 @@ const MAX_RADIUS = 5;
 const BASE_ALPHA = 0.16;
 const MAX_ALPHA = 0.55;
 const INTERACT_RADIUS = 150;
-const DOT_COLOR = "60, 6, 122";
+const INTERACT_RADIUS_SQ = INTERACT_RADIUS * INTERACT_RADIUS;
+const DOT_COLOR = "rgb(60, 6, 122)";
 
 export function DotGrid() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const mouse = useRef({ x: -1000, y: -1000 });
-  const raf = useRef(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -19,71 +18,92 @@ export function DotGrid() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let w = 0;
-    let h = 0;
+    let width = 0;
+    let height = 0;
+    const cols: number[] = [];
+    const rows: number[] = [];
+    const mouse = { x: -9999, y: -9999 };
+    let frame = 0;
 
-    function resize() {
-      const parent = canvas!.parentElement;
-      if (!parent) return;
-      const dpr = window.devicePixelRatio || 1;
-      w = parent.clientWidth;
-      h = parent.clientHeight;
-      canvas!.width = w * dpr;
-      canvas!.height = h * dpr;
-      canvas!.style.width = `${w}px`;
-      canvas!.style.height = `${h}px`;
-      ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
+    function render() {
+      frame = 0;
+      ctx!.clearRect(0, 0, width, height);
+      ctx!.fillStyle = DOT_COLOR;
+      const mx = mouse.x;
+      const my = mouse.y;
 
-    function draw() {
-      ctx!.clearRect(0, 0, w, h);
-      const mx = mouse.current.x;
-      const my = mouse.current.y;
-
-      for (let x = SPACING / 2; x < w; x += SPACING) {
-        for (let y = SPACING / 2; y < h; y += SPACING) {
-          const dx = x - mx;
+      for (let i = 0; i < cols.length; i++) {
+        const x = cols[i];
+        const dxSq = (x - mx) * (x - mx);
+        for (let j = 0; j < rows.length; j++) {
+          const y = rows[j];
           const dy = y - my;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          const t = Math.max(0, 1 - dist / INTERACT_RADIUS);
-          const ease = t * t;
+          const distSq = dxSq + dy * dy;
 
-          const r = BASE_RADIUS + (MAX_RADIUS - BASE_RADIUS) * ease;
-          const a = BASE_ALPHA + (MAX_ALPHA - BASE_ALPHA) * ease;
+          let r = BASE_RADIUS;
+          let a = BASE_ALPHA;
+          if (distSq < INTERACT_RADIUS_SQ) {
+            const ease = 1 - Math.sqrt(distSq) / INTERACT_RADIUS;
+            const e = ease * ease;
+            r = BASE_RADIUS + (MAX_RADIUS - BASE_RADIUS) * e;
+            a = BASE_ALPHA + (MAX_ALPHA - BASE_ALPHA) * e;
+          }
 
+          ctx!.globalAlpha = a;
           ctx!.beginPath();
           ctx!.arc(x, y, r, 0, Math.PI * 2);
-          ctx!.fillStyle = `rgba(${DOT_COLOR}, ${a})`;
           ctx!.fill();
         }
       }
-
-      raf.current = requestAnimationFrame(draw);
+      ctx!.globalAlpha = 1;
     }
 
-    function onMouseMove(e: MouseEvent) {
+    function scheduleRender() {
+      if (!frame) frame = requestAnimationFrame(render);
+    }
+
+    function build() {
+      const parent = canvas!.parentElement;
+      if (!parent) return;
+      const dpr = window.devicePixelRatio || 1;
+      width = parent.clientWidth;
+      height = parent.clientHeight;
+      canvas!.width = width * dpr;
+      canvas!.height = height * dpr;
+      canvas!.style.width = `${width}px`;
+      canvas!.style.height = `${height}px`;
+      ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      cols.length = 0;
+      rows.length = 0;
+      for (let x = SPACING / 2; x < width; x += SPACING) cols.push(x);
+      for (let y = SPACING / 2; y < height; y += SPACING) rows.push(y);
+      render();
+    }
+
+    function onMove(e: MouseEvent) {
       const rect = canvas!.getBoundingClientRect();
-      mouse.current.x = e.clientX - rect.left;
-      mouse.current.y = e.clientY - rect.top;
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+      scheduleRender();
     }
 
-    function onMouseLeave() {
-      mouse.current.x = -1000;
-      mouse.current.y = -1000;
+    function onLeave() {
+      mouse.x = -9999;
+      mouse.y = -9999;
+      scheduleRender();
     }
 
-    resize();
-    draw();
-
-    canvas.addEventListener("mousemove", onMouseMove);
-    canvas.addEventListener("mouseleave", onMouseLeave);
-    window.addEventListener("resize", resize);
+    build();
+    window.addEventListener("mousemove", onMove, { passive: true });
+    window.addEventListener("resize", build);
+    document.addEventListener("mouseleave", onLeave);
 
     return () => {
-      cancelAnimationFrame(raf.current);
-      canvas.removeEventListener("mousemove", onMouseMove);
-      canvas.removeEventListener("mouseleave", onMouseLeave);
-      window.removeEventListener("resize", resize);
+      cancelAnimationFrame(frame);
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("resize", build);
+      document.removeEventListener("mouseleave", onLeave);
     };
   }, []);
 
@@ -91,7 +111,7 @@ export function DotGrid() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="pointer-events-auto absolute inset-0 z-0"
+      className="pointer-events-none absolute inset-0 z-0"
     />
   );
 }
