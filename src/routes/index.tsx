@@ -536,6 +536,41 @@ function Home() {
         </div>
       </section>
 
+      {/* Demo */}
+      <section id="demo" className="relative py-24 md:py-32 overflow-hidden section-light bg-background text-foreground">
+        <SectionDots />
+        <div className="relative z-10 max-w-6xl mx-auto px-6">
+          <Reveal>
+            <Label>Demo</Label>
+          </Reveal>
+
+          <div className="mt-12 rounded-2xl bg-primary p-10 md:p-16 text-center">
+            <Reveal delay={100}>
+              <h2 className="font-serif text-3xl md:text-5xl text-white text-balance max-w-3xl mx-auto">
+                See it in action
+              </h2>
+            </Reveal>
+            <Reveal delay={150}>
+              <p className="mt-6 text-base md:text-lg leading-relaxed text-white/80 text-pretty max-w-2xl mx-auto">
+                An AI-powered order management agent built for a Dhaka-based sleepwear brand. It
+                checks orders, enforces return policies, sends confirmation emails, and generates
+                PDF receipts — all through natural conversation in English and বাংলা.
+              </p>
+            </Reveal>
+            <Reveal delay={200}>
+              <div className="mt-10">
+                <MagneticButton
+                  href="/kothademo"
+                  className="inline-flex items-center rounded-md bg-white px-8 py-4 text-sm font-medium text-primary hover:opacity-90"
+                >
+                  Try the Demo →
+                </MagneticButton>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* Work */}
       <section id="work" className="relative py-24 md:py-32 overflow-hidden section-light bg-background text-foreground">
         <SectionDots />
