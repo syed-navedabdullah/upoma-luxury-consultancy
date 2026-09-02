@@ -560,7 +560,9 @@ function Home() {
             <Reveal delay={200}>
               <div className="mt-10">
                 <MagneticButton
-                  href="/kothademo"
+                  href="https://cozy-dreams-bd.lovable.app/chat"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center rounded-md bg-white px-8 py-4 text-sm font-medium text-primary hover:opacity-90"
                 >
                   Try the Demo →

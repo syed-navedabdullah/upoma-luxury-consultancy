@@ -7,10 +7,14 @@ export function MagneticButton({
   href,
   className = "",
   children,
+  target,
+  rel,
 }: {
   href: string;
   className?: string;
   children: React.ReactNode;
+  target?: string;
+  rel?: string;
 }) {
   const ref = useRef<HTMLAnchorElement>(null);
 
@@ -35,6 +39,8 @@ export function MagneticButton({
     <a
       ref={ref}
       href={href}
+      target={target}
+      rel={rel}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       className={className}
