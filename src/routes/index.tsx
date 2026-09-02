@@ -569,6 +569,11 @@ function Home() {
                 </MagneticButton>
               </div>
             </Reveal>
+            <Reveal delay={250}>
+              <p className="mt-6 text-[11px] tracking-label uppercase text-white/50">
+                Built on Claude Code — running Mimo v2.5
+              </p>
+            </Reveal>
           </div>
         </div>
       </section>
