@@ -552,9 +552,10 @@ function Home() {
             </Reveal>
             <Reveal delay={150}>
               <p className="mt-6 text-base md:text-lg leading-relaxed text-white/80 text-pretty max-w-2xl mx-auto">
-                An AI-powered order management agent built for a Dhaka-based sleepwear brand. It
-                checks orders, enforces return policies, sends confirmation emails, and generates
-                PDF receipts — all through natural conversation in English and বাংলা.
+                Kotha Apu is a bilingual (English/Bangla) AI order-assistant for a hypothetical
+                Dhaka-based sleepwear brand that looks up orders, files returns and cancellations
+                with real eligibility checks, emails confirmations, and generates PDF receipts —
+                all through a Cloudflare Worker wired to Supabase, Resend, and Mimo.
               </p>
             </Reveal>
             <Reveal delay={200}>
