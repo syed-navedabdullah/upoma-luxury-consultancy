@@ -381,7 +381,7 @@ function ProjectCarousel() {
           </div>
 
           <div className="rounded-xl bg-white p-6">
-            <p className="text-[11px] tracking-label uppercase font-bold text-[#3c067a] mb-3">Key result</p>
+            <p className="text-[11px] tracking-label uppercase font-bold text-[#2dd4bf] mb-3">Key result</p>
             <p className="text-base md:text-lg text-black leading-snug font-medium">
               {project.result}
             </p>
@@ -607,7 +607,7 @@ function Home() {
 
             <div className="lg:col-span-7">
               <Reveal delay={150}>
-                <h2 className="font-serif text-4xl md:text-5xl text-[#3c067a]">Naved Abdullah</h2>
+                <h2 className="font-serif text-4xl md:text-5xl text-[#2dd4bf]">Naved Abdullah</h2>
                 <p className="mt-2 text-sm text-muted-foreground">Founder, Upoma</p>
               </Reveal>
 

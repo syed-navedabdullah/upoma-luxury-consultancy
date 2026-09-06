@@ -10,7 +10,7 @@ const INTERACT_RADIUS_SQ = INTERACT_RADIUS * INTERACT_RADIUS;
 const SMOOTH = 0.12;
 const AMBIENT_RADIUS = 0.6;
 const AMBIENT_ALPHA = 0.06;
-const DOT_COLOR = "rgb(60, 6, 122)";
+const DOT_COLOR = "rgb(45, 212, 191)";
 
 export function DotGrid() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
