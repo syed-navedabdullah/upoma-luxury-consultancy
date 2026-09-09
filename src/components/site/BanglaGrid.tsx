@@ -21,18 +21,22 @@ const NOISE_TIME_SCALE = 0.00012;
 const NOISE_AMPLITUDE = 5;
 const POS_SMOOTH = 0.06;
 
-// Cursor ripple waves — signals propagating through the network.
-const RIPPLE_SPEED = 150; // px/sec
-const RIPPLE_WIDTH = 30; // wavefront thickness, px
-const RIPPLE_LIFE = 2000; // ms
-const RIPPLE_SPAWN_INTERVAL = 80; // ms between move-spawned ripples
-const RIPPLE_BOOST = 0.3;
+// Click ripple — a single strong pulse the visitor can trigger deliberately.
+const RIPPLE_SPEED = 250; // px/sec
+const RIPPLE_WIDTH = 50; // wavefront thickness, px
+const RIPPLE_LIFE = 2500; // ms
+const RIPPLE_BOOST = 0.6;
 const MAX_RIPPLES = 12;
 
-const CLICK_RIPPLE_SPEED = 250;
-const CLICK_RIPPLE_WIDTH = 50;
-const CLICK_RIPPLE_LIFE = 2500;
-const CLICK_RIPPLE_BOOST = 0.6;
+// Autonomous "Mexican wave" — a diagonal band that sweeps across the whole
+// field on its own timer, independent of the cursor.
+const WAVE_PERIOD = 3200; // ms between sweep launches
+const WAVE_DURATION = 2800; // ms for one sweep to cross the diagonal
+const WAVE_BAND_WIDTH = 130; // softness of the traveling band, px
+const WAVE_BOOST = 0.55;
+const WAVE_DIR_X = 0.7071; // ~45deg diagonal direction, matches ambient wave
+const WAVE_DIR_Y = 0.7071;
+const MAX_AUTO_WAVES = 4;
 
 // Neural connection lines between bright, active letters.
 const CONNECTION_ALPHA_THRESHOLD = 0.3;
@@ -40,10 +44,8 @@ const CONNECTION_LINE_ALPHA_SCALE = 0.45;
 const CONNECTION_LINE_WIDTH = 0.5;
 const LINE_BUCKETS = 5;
 
-// 60% brand letters ("উপমা"), 40% distinctive consonants.
-const BRAND_CHARS = ["উ", "প", "ম", "া"];
-const ACCENT_CHARS = ["ক", "খ", "গ", "ত", "ধ", "ন", "ব", "র", "শ", "স"];
-const CHAR_POOL = [...BRAND_CHARS, ...BRAND_CHARS, ...BRAND_CHARS, ...ACCENT_CHARS, ...ACCENT_CHARS];
+// Consonants only for now — brand letters ("উপমা") temporarily disabled.
+const CHAR_POOL = ["ক", "খ", "গ", "ত", "ধ", "ন", "ব", "র", "শ", "স"];
 
 const ATLAS_MIN_SIZE = 12;
 const ATLAS_MAX_SIZE = 22;
@@ -69,7 +71,8 @@ function noise2d(x: number, y: number): number {
   return n00 + (n10 - n00) * sx + (n01 - n00) * sy + (n00 - n10 - n01 + n11) * sx * sy;
 }
 
-type Ripple = { x: number; y: number; birth: number; strong: boolean };
+type Ripple = { x: number; y: number; birth: number };
+type AutoWave = { birth: number };
 
 export function BanglaGrid() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -95,7 +98,8 @@ export function BanglaGrid() {
     const mouse = { x: -9999, y: -9999 };
 
     const ripples: Ripple[] = [];
-    let lastRippleTime = 0;
+    const autoWaves: AutoWave[] = [];
+    let lastAutoWaveTime = 0;
 
     let frame = 0;
     let running = false;
@@ -214,11 +218,22 @@ export function BanglaGrid() {
       const mx = mouse.x;
       const my = mouse.y;
 
-      // Prune dead ripples.
+      // Prune dead ripples and autonomous waves.
       for (let r = ripples.length - 1; r >= 0; r--) {
-        const life = ripples[r].strong ? CLICK_RIPPLE_LIFE : RIPPLE_LIFE;
-        if (t - ripples[r].birth > life) ripples.splice(r, 1);
+        if (t - ripples[r].birth > RIPPLE_LIFE) ripples.splice(r, 1);
       }
+      for (let w = autoWaves.length - 1; w >= 0; w--) {
+        if (t - autoWaves[w].birth > WAVE_DURATION) autoWaves.splice(w, 1);
+      }
+
+      // Launch a new autonomous sweep on its own timer, independent of the cursor.
+      if (t - lastAutoWaveTime > WAVE_PERIOD) {
+        autoWaves.push({ birth: t });
+        if (autoWaves.length > MAX_AUTO_WAVES) autoWaves.shift();
+        lastAutoWaveTime = t;
+      }
+
+      const maxDiagonal = width * WAVE_DIR_X + height * WAVE_DIR_Y;
 
       // Bucketed connection-line segments, grouped by alpha for batched strokes.
       const buckets: number[][] = Array.from({ length: LINE_BUCKETS }, () => []);
@@ -259,28 +274,43 @@ export function BanglaGrid() {
             targetA += (MAX_ALPHA - BASE_ALPHA) * cursorEase;
           }
 
-          // Ripple wave boost — expanding signal rings.
+          // Click ripple boost — a single expanding signal ring per click.
           let rippleBoost = 0;
           for (const rp of ripples) {
             const age = t - rp.birth;
-            const life = rp.strong ? CLICK_RIPPLE_LIFE : RIPPLE_LIFE;
-            const speed = rp.strong ? CLICK_RIPPLE_SPEED : RIPPLE_SPEED;
-            const rippleWidth = rp.strong ? CLICK_RIPPLE_WIDTH : RIPPLE_WIDTH;
-            if (age < 0 || age > life) continue;
+            if (age < 0 || age > RIPPLE_LIFE) continue;
 
-            const radius = (age / 1000) * speed;
+            const radius = (age / 1000) * RIPPLE_SPEED;
             const dist = Math.sqrt((x - rp.x) ** 2 + (y - rp.y) ** 2);
             const waveDist = Math.abs(dist - radius);
-            if (waveDist < rippleWidth) {
-              const waveStrength = 1 - waveDist / rippleWidth;
-              const decay = 1 - age / life;
-              rippleBoost += waveStrength * decay * (rp.strong ? CLICK_RIPPLE_BOOST : RIPPLE_BOOST);
+            if (waveDist < RIPPLE_WIDTH) {
+              const waveStrength = 1 - waveDist / RIPPLE_WIDTH;
+              const decay = 1 - age / RIPPLE_LIFE;
+              rippleBoost += waveStrength * decay * RIPPLE_BOOST;
             }
           }
-          if (rippleBoost > 0) {
-            const b = Math.min(rippleBoost, 1);
-            targetS += (MAX_SIZE - BASE_SIZE) * b;
-            targetA += (MAX_ALPHA - BASE_ALPHA) * b;
+
+          // Autonomous diagonal sweep — self-propagating, ignores the cursor
+          // entirely. A soft band travels across the field on its own loop.
+          let waveBoost = 0;
+          const dProj = gx * WAVE_DIR_X + gy * WAVE_DIR_Y;
+          for (const w of autoWaves) {
+            const age = t - w.birth;
+            if (age < 0 || age > WAVE_DURATION) continue;
+            const progress = age / WAVE_DURATION;
+            const frontD = -WAVE_BAND_WIDTH + progress * (maxDiagonal + WAVE_BAND_WIDTH * 2);
+            const diff = Math.abs(dProj - frontD);
+            if (diff < WAVE_BAND_WIDTH) {
+              const strength = 1 - diff / WAVE_BAND_WIDTH;
+              const eased = strength * strength * (3 - 2 * strength);
+              waveBoost += eased * WAVE_BOOST;
+            }
+          }
+
+          const boost = Math.min(rippleBoost + waveBoost, 1);
+          if (boost > 0) {
+            targetS += (MAX_SIZE - BASE_SIZE) * boost;
+            targetA += (MAX_ALPHA - BASE_ALPHA) * boost;
           }
           targetS = Math.max(MIN_SIZE, targetS);
 
@@ -357,13 +387,6 @@ export function BanglaGrid() {
       const rect = canvas!.getBoundingClientRect();
       mouse.x = e.clientX - rect.left;
       mouse.y = e.clientY - rect.top;
-
-      const now = performance.now();
-      if (now - lastRippleTime > RIPPLE_SPAWN_INTERVAL) {
-        ripples.push({ x: mouse.x, y: mouse.y, birth: now, strong: false });
-        if (ripples.length > MAX_RIPPLES) ripples.shift();
-        lastRippleTime = now;
-      }
     }
 
     function onClick(e: MouseEvent) {
@@ -372,7 +395,6 @@ export function BanglaGrid() {
         x: e.clientX - rect.left,
         y: e.clientY - rect.top,
         birth: performance.now(),
-        strong: true,
       });
       if (ripples.length > MAX_RIPPLES) ripples.shift();
     }
@@ -421,6 +443,7 @@ export function BanglaGrid() {
           document.removeEventListener("visibilitychange", onVisibility);
           canvas!.parentElement?.removeEventListener("click", onClick);
           ripples.length = 0;
+          autoWaves.length = 0;
         };
       });
 
