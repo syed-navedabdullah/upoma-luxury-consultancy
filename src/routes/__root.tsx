@@ -39,6 +39,16 @@ export const Route = createRootRoute({
         rel: "stylesheet",
         href: "https://fonts.cdnfonts.com/css/glacial-indifference",
       },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400&display=swap",
+      },
       { rel: "canonical", href: "https://upoma.one/" },
     ],
   }),

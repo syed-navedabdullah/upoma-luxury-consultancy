@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Linkedin } from "lucide-react";
-import { DotGrid } from "@/components/site/DotGrid";
+import { BanglaGrid } from "@/components/site/BanglaGrid";
 import { MagneticButton } from "@/components/site/MagneticButton";
 import founder1 from "@/assets/founder-1.png";
 import founder2 from "@/assets/founder-2.jpg";
@@ -138,7 +138,7 @@ const founderPhotos = [
 function SectionDots() {
   return (
     <div aria-hidden="true" className="hidden md:block absolute inset-0 z-0">
-      <DotGrid />
+      <BanglaGrid />
     </div>
   );
 }
