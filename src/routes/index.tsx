@@ -264,12 +264,16 @@ function ProcessCard({
   description: string;
 }) {
   return (
-    <div className="bento-card flex flex-col h-full min-h-[120px] hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20">
-      <p className="text-[11px] tracking-label uppercase text-white/70">{number}</p>
-      <p className="text-lg md:text-xl font-bold text-white leading-tight mt-3 min-h-[2.5rem] md:min-h-[3rem]">
-        {title}
-      </p>
-      <p className="text-xs text-white/70 mt-1.5 leading-relaxed">{description}</p>
+    <div className="group h-full min-h-[160px] [perspective:1200px]">
+      <div className="relative h-full w-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+        <div className="absolute inset-0 flex flex-col justify-center rounded-xl border border-border bg-surface p-6 md:p-8 [backface-visibility:hidden]">
+          <p className="text-[11px] tracking-label uppercase text-white/70">{number}</p>
+          <p className="text-2xl md:text-3xl font-bold text-white leading-tight mt-2">{title}</p>
+        </div>
+        <div className="absolute inset-0 flex items-center rounded-xl border border-primary/60 bg-surface p-6 md:p-8 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+          <p className="text-sm text-white leading-relaxed">{description}</p>
+        </div>
+      </div>
     </div>
   );
 }
