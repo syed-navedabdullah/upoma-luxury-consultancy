@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Linkedin } from "lucide-react";
 import { BanglaGrid } from "@/components/site/BanglaGrid";
 import { MagneticButton } from "@/components/site/MagneticButton";
+import { SectionDivider } from "@/components/site/SectionDivider";
 import founder1 from "@/assets/founder-1.png";
 import founder2 from "@/assets/founder-2.jpg";
 import { useInView } from "@/hooks/use-in-view";
@@ -506,6 +507,8 @@ function Home() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* Services */}
       <section
         id="services"
@@ -539,6 +542,8 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <SectionDivider />
 
       {/* Demo */}
       <section id="demo" className="relative py-24 md:py-32 overflow-hidden section-light bg-background text-foreground">
@@ -583,6 +588,8 @@ function Home() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* Work */}
       <section id="work" className="relative py-24 md:py-32 overflow-hidden section-light bg-background text-foreground">
         <SectionDots />
@@ -593,6 +600,8 @@ function Home() {
           <ProjectCarousel />
         </div>
       </section>
+
+      <SectionDivider />
 
       {/* About */}
       <section id="about" className="relative py-24 md:py-32 overflow-hidden section-light bg-background text-foreground">
@@ -659,10 +668,12 @@ function Home() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* Contact */}
       <section
         id="contact"
-        className="relative py-24 md:py-32 overflow-hidden border-t border-border/60 section-light bg-background text-foreground"
+        className="relative py-24 md:py-32 overflow-hidden section-light bg-background text-foreground"
       >
         <SectionDots />
         <div className="relative z-10 max-w-6xl mx-auto px-6">

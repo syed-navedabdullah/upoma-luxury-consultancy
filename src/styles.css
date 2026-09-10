@@ -41,7 +41,7 @@
   --color-primary-deep: var(--primary-deep);
 
   --font-sans: "Glacial Indifference", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Glacial Indifference", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
 }
 
 :root {

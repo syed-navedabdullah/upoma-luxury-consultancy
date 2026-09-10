@@ -47,7 +47,7 @@ export const Route = createRootRoute({
       },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Noto+Sans+Bengali:wght@400&display=swap",
       },
       { rel: "canonical", href: "https://upoma.one/" },
     ],
