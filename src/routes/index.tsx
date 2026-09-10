@@ -5,6 +5,8 @@ import { BanglaGrid } from "@/components/site/BanglaGrid";
 import { MagneticButton } from "@/components/site/MagneticButton";
 import { SectionDivider } from "@/components/site/SectionDivider";
 import { ToolTicker } from "@/components/site/ToolTicker";
+import { SectionMarker } from "@/components/site/SectionMarker";
+import { CornerMarks } from "@/components/site/CornerMarks";
 import founder1 from "@/assets/founder-1.png";
 import founder2 from "@/assets/founder-2.jpg";
 import { useInView } from "@/hooks/use-in-view";
@@ -142,12 +144,6 @@ function SectionDots() {
     <div aria-hidden="true" className="hidden md:block absolute inset-0 z-0">
       <BanglaGrid />
     </div>
-  );
-}
-
-function Label({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="text-base md:text-lg tracking-label uppercase text-primary font-bold">{children}</p>
   );
 }
 
@@ -444,7 +440,16 @@ function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden section-light bg-background text-foreground">
         <SectionDots />
+        <CornerMarks />
         <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-20 md:pt-28 md:pb-32">
+          <Reveal>
+            <div className="mb-8 flex items-center gap-3 font-mono text-[11px] tracking-label uppercase text-muted-foreground">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-dot" />
+              <span className="text-primary">§00</span>
+              <span>Dhaka 23.8103°N · 90.4125°E</span>
+              <span className="hidden sm:inline text-muted-foreground/50">/ AI-native consultancy</span>
+            </div>
+          </Reveal>
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-10 items-start">
             <div className="lg:col-span-7">
               <AnimatedHeadline />
@@ -516,9 +521,10 @@ function Home() {
         className="relative py-24 md:py-32 overflow-hidden section-light bg-background text-foreground"
       >
         <SectionDots />
+        <CornerMarks />
         <div className="relative z-10 max-w-6xl mx-auto px-6">
           <Reveal>
-            <Label>What we do</Label>
+            <SectionMarker index="01" label="What we do" meta="04 capabilities" />
           </Reveal>
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 gap-4">
@@ -547,10 +553,11 @@ function Home() {
       <SectionDivider />
 
       {/* Toolkit */}
-      <section className="relative py-16 md:py-20 overflow-hidden section-light bg-background text-foreground">
+      <section id="toolkit" className="relative py-16 md:py-20 overflow-hidden section-light bg-background text-foreground">
+        <CornerMarks />
         <div className="relative z-10 max-w-6xl mx-auto px-6">
           <Reveal>
-            <Label>The toolkit</Label>
+            <SectionMarker index="02" label="The toolkit" meta="09 systems" />
           </Reveal>
         </div>
         <Reveal delay={100}>
@@ -565,9 +572,10 @@ function Home() {
       {/* Demo */}
       <section id="demo" className="relative py-24 md:py-32 overflow-hidden section-light bg-background text-foreground">
         <SectionDots />
+        <CornerMarks />
         <div className="relative z-10 max-w-6xl mx-auto px-6">
           <Reveal>
-            <Label>Demo</Label>
+            <SectionMarker index="03" label="Demo" meta="Kotha Apu · live" />
           </Reveal>
 
           <div className="mt-12 rounded-2xl bg-primary p-10 md:p-16 text-center">
@@ -610,9 +618,10 @@ function Home() {
       {/* Work */}
       <section id="work" className="relative py-24 md:py-32 overflow-hidden section-light bg-background text-foreground">
         <SectionDots />
+        <CornerMarks />
         <div className="relative z-10 max-w-6xl mx-auto px-6">
           <Reveal>
-            <Label>Selected work</Label>
+            <SectionMarker index="04" label="Selected work" meta="03 case studies" />
           </Reveal>
           <ProjectCarousel />
         </div>
@@ -623,9 +632,10 @@ function Home() {
       {/* About */}
       <section id="about" className="relative py-24 md:py-32 overflow-hidden section-light bg-background text-foreground">
         <SectionDots />
+        <CornerMarks />
         <div className="relative z-10 max-w-6xl mx-auto px-6">
           <Reveal>
-            <Label>About</Label>
+            <SectionMarker index="05" label="About" meta="LAT 23.8103°N" />
           </Reveal>
 
           <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-16">
@@ -693,7 +703,11 @@ function Home() {
         className="relative py-24 md:py-32 overflow-hidden section-light bg-background text-foreground"
       >
         <SectionDots />
+        <CornerMarks />
         <div className="relative z-10 max-w-6xl mx-auto px-6">
+          <Reveal className="mb-12">
+            <SectionMarker index="06" label="Contact" meta="LON 90.4125°E" />
+          </Reveal>
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <Reveal>

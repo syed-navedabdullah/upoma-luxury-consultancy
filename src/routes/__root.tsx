@@ -2,6 +2,8 @@ import { Outlet, createRootRoute, HeadContent, Scripts } from "@tanstack/react-r
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { BootIntro } from "@/components/site/BootIntro";
+import { GridLines } from "@/components/site/GridLines";
+import { Hud } from "@/components/site/Hud";
 
 import appCss from "../styles.css?url";
 
@@ -48,7 +50,7 @@ export const Route = createRootRoute({
       },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Noto+Sans+Bengali:wght@400&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Bengali:wght@400&display=swap",
       },
       { rel: "canonical", href: "https://upoma.one/" },
     ],
@@ -76,6 +78,8 @@ function RootComponent() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <BootIntro />
+      <GridLines />
+      <Hud />
       <Nav />
       <main>
         <Outlet />

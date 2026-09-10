@@ -42,6 +42,7 @@
 
   --font-sans: "Glacial Indifference", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 :root {
@@ -190,6 +191,15 @@
   animation: marquee 28s linear infinite;
 }
 
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.7); }
+}
+
+@utility animate-pulse-dot {
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
 @keyframes shine {
   0% { background-position: 200% center; }
   100% { background-position: -200% center; }
@@ -216,6 +226,10 @@
   }
 
   .animate-marquee {
+    animation: none;
+  }
+
+  .animate-pulse-dot {
     animation: none;
   }
 }
