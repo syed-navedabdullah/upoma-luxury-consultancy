@@ -40,7 +40,7 @@ export function BootIntro() {
   return (
     <div
       aria-hidden="true"
-      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background transition-opacity ease-[cubic-bezier(0.16,1,0.3,1)] ${
+      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-surface transition-opacity ease-[cubic-bezier(0.16,1,0.3,1)] ${
         exiting ? "opacity-0 duration-500 pointer-events-none" : "opacity-100 duration-0"
       }`}
     >
