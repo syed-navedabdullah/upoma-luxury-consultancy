@@ -4,6 +4,7 @@ import { Linkedin } from "lucide-react";
 import { BanglaGrid } from "@/components/site/BanglaGrid";
 import { MagneticButton } from "@/components/site/MagneticButton";
 import { SectionDivider } from "@/components/site/SectionDivider";
+import { ToolTicker } from "@/components/site/ToolTicker";
 import founder1 from "@/assets/founder-1.png";
 import founder2 from "@/assets/founder-2.jpg";
 import { useInView } from "@/hooks/use-in-view";
@@ -541,6 +542,22 @@ function Home() {
             </Reveal>
           </div>
         </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* Toolkit */}
+      <section className="relative py-16 md:py-20 overflow-hidden section-light bg-background text-foreground">
+        <div className="relative z-10 max-w-6xl mx-auto px-6">
+          <Reveal>
+            <Label>The toolkit</Label>
+          </Reveal>
+        </div>
+        <Reveal delay={100}>
+          <div className="mt-8">
+            <ToolTicker tools={services[0].tools ?? []} />
+          </div>
+        </Reveal>
       </section>
 
       <SectionDivider />
