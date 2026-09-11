@@ -2,8 +2,8 @@ import { useLayoutEffect, useState } from "react";
 import { BanglaGrid } from "./BanglaGrid";
 
 const STORAGE_KEY = "upoma-booted";
-const VISIBLE_MS = 3200;
-const EXIT_MS = 700;
+const VISIBLE_MS = 3400;
+const EXIT_MS = 900;
 
 // Procedural cloud bank — fractal-noise turbulence shaped into soft white
 // clouds. Scales up and fades (via animate-boot-cloud) to read as the camera
@@ -78,8 +78,8 @@ export function BootIntro() {
   return (
     <div
       aria-hidden="true"
-      className={`fixed inset-0 z-[100] overflow-hidden bg-surface transition-opacity ease-[cubic-bezier(0.16,1,0.3,1)] ${
-        exiting ? "pointer-events-none opacity-0 duration-700" : "opacity-100 duration-0"
+      className={`fixed inset-0 z-[100] overflow-hidden bg-surface transition-transform duration-[900ms] ease-[cubic-bezier(0.7,0,0.2,1)] ${
+        exiting ? "pointer-events-none -translate-y-full" : "translate-y-0"
       }`}
     >
       {/* White neural-Bangla grid backdrop against the teal */}
@@ -101,14 +101,9 @@ export function BootIntro() {
       <CloudLayer seed={7} freq="0.011 0.017" delay={500} blur={4} />
       <CloudLayer seed={11} freq="0.020 0.030" delay={1000} blur={1} />
 
-      {/* Wordmark emerging from the distance */}
+      {/* Wordmark — extruded 3D face swinging in from the depth */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <p
-          className="animate-boot-logo font-serif text-6xl text-white md:text-8xl"
-          style={{ textShadow: "0 4px 40px rgba(0,0,0,0.25)" }}
-        >
-          উপমা
-        </p>
+        <p className="boot-logo-3d animate-boot-logo font-serif text-7xl md:text-9xl">উপমা</p>
       </div>
     </div>
   );
