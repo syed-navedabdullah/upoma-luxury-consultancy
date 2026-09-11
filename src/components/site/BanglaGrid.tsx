@@ -11,7 +11,6 @@ const INTERACT_RADIUS_SQ = INTERACT_RADIUS * INTERACT_RADIUS;
 const SMOOTH = 0.12;
 const AMBIENT_SIZE = 2.4;
 const AMBIENT_ALPHA = 0.06;
-const DOT_COLOR = "rgb(45, 212, 191)";
 const GLOW_COLOR = "rgb(0, 95, 106)";
 const FONT_FAMILY = '"Noto Sans Bengali", "Kalpurush", "Bangla MN", sans-serif';
 
@@ -74,10 +73,11 @@ function noise2d(x: number, y: number): number {
 type Ripple = { x: number; y: number; birth: number };
 type AutoWave = { birth: number };
 
-export function BanglaGrid() {
+export function BanglaGrid({ rgb = [45, 212, 191] }: { rgb?: [number, number, number] } = {}) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    const dotColor = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -175,7 +175,7 @@ export function BanglaGrid() {
         }
       }
 
-      atlases = buildAtlasSet(DOT_COLOR);
+      atlases = buildAtlasSet(dotColor);
       glowAtlases = buildAtlasSet(GLOW_COLOR);
 
       if (reduceMotion) drawStatic();
@@ -360,7 +360,7 @@ export function BanglaGrid() {
         const segs = buckets[b];
         if (segs.length === 0) continue;
         const alpha = ((b + 1) / LINE_BUCKETS) * CONNECTION_LINE_ALPHA_SCALE;
-        ctx!.strokeStyle = `rgba(45, 212, 191, ${alpha})`;
+        ctx!.strokeStyle = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${alpha})`;
         ctx!.beginPath();
         for (let s = 0; s < segs.length; s += 4) {
           ctx!.moveTo(segs[s], segs[s + 1]);
