@@ -7,6 +7,7 @@ import { SectionDivider } from "@/components/site/SectionDivider";
 import { ToolTicker } from "@/components/site/ToolTicker";
 import { SectionMarker } from "@/components/site/SectionMarker";
 import { CornerMarks } from "@/components/site/CornerMarks";
+import { ProcessCoverflow } from "@/components/site/ProcessCoverflow";
 import founder1 from "@/assets/founder-1.png";
 import founder2 from "@/assets/founder-2.jpg";
 import { useInView } from "@/hooks/use-in-view";
@@ -79,6 +80,13 @@ const services = [
     body: "Hands-on sessions that bring your team up to speed on AI tools, digital marketing fundamentals, and modern content workflows.",
     tags: ["AI Tools Training", "Digital Marketing", "Content Workflows", "Team Upskilling"],
   },
+];
+
+const processSteps = [
+  { number: "01", title: "Discovery", description: "Audit what you have, understand what's not working." },
+  { number: "02", title: "Strategy", description: "Figure out what to do, in what order, with what tools." },
+  { number: "03", title: "Build & Launch", description: "Set it up, go live, adjust as we go." },
+  { number: "04", title: "Handoff & Training", description: "Your team learns to run it without us." },
 ];
 
 const projects = [
@@ -247,30 +255,6 @@ function FounderCarousel() {
             }`}
           />
         ))}
-      </div>
-    </div>
-  );
-}
-
-function ProcessCard({
-  number,
-  title,
-  description,
-}: {
-  number: string;
-  title: string;
-  description: string;
-}) {
-  return (
-    <div className="group h-full min-h-[160px] [perspective:1200px]">
-      <div className="relative h-full w-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-        <div className="absolute inset-0 flex flex-col justify-center rounded-xl border border-border bg-surface p-6 md:p-8 [backface-visibility:hidden]">
-          <p className="text-[11px] tracking-label uppercase text-white/70">{number}</p>
-          <p className="text-2xl md:text-3xl font-bold text-white leading-tight mt-2">{title}</p>
-        </div>
-        <div className="absolute inset-0 flex items-center rounded-xl border border-primary/60 bg-surface p-6 md:p-8 [backface-visibility:hidden] [transform:rotateY(180deg)]">
-          <p className="text-sm text-white leading-relaxed">{description}</p>
-        </div>
       </div>
     </div>
   );
@@ -450,66 +434,37 @@ function Home() {
               <span className="hidden sm:inline text-muted-foreground/50">/ AI-native consultancy</span>
             </div>
           </Reveal>
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-10 items-start">
-            <div className="lg:col-span-7">
-              <AnimatedHeadline />
-              <Reveal delay={100}>
-                <p className="mt-8 max-w-2xl text-lg text-muted-foreground leading-relaxed text-pretty">
-                  AI tools, digital strategy, and social media systems — plus branding when you
-                  need it.
-                </p>
-              </Reveal>
-              <Reveal delay={200}>
-                <div className="mt-10 flex flex-wrap gap-4">
-                  <MagneticButton
-                    href="#work"
-                    className="inline-flex items-center rounded-md bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground hover:opacity-90"
-                  >
-                    View Work
-                  </MagneticButton>
-                  <MagneticButton
-                    href="#contact"
-                    className="inline-flex items-center rounded-md border border-border px-7 py-3.5 text-sm font-medium text-foreground hover:border-primary hover:text-primary"
-                  >
-                    Get in Touch
-                  </MagneticButton>
-                </div>
-              </Reveal>
-            </div>
-
-            <div className="lg:col-span-5">
-              <div className="grid grid-cols-2 gap-3">
-                <Reveal delay={200} className="h-full">
-                  <ProcessCard
-                    number="01"
-                    title="Discovery"
-                    description="Audit what you have, understand what's not working."
-                  />
-                </Reveal>
-                <Reveal delay={300} className="h-full">
-                  <ProcessCard
-                    number="02"
-                    title="Strategy"
-                    description="Figure out what to do, in what order, with what tools."
-                  />
-                </Reveal>
-                <Reveal delay={400} className="h-full">
-                  <ProcessCard
-                    number="03"
-                    title="Build & Launch"
-                    description="Set it up, go live, adjust as we go."
-                  />
-                </Reveal>
-                <Reveal delay={500} className="h-full">
-                  <ProcessCard
-                    number="04"
-                    title="Handoff & Training"
-                    description="Your team learns to run it without us."
-                  />
-                </Reveal>
+          <div className="max-w-4xl">
+            <AnimatedHeadline />
+            <Reveal delay={100}>
+              <p className="mt-8 max-w-2xl text-lg text-muted-foreground leading-relaxed text-pretty">
+                AI tools, digital strategy, and social media systems — plus branding when you
+                need it.
+              </p>
+            </Reveal>
+            <Reveal delay={200}>
+              <div className="mt-10 flex flex-wrap gap-4">
+                <MagneticButton
+                  href="#work"
+                  className="inline-flex items-center rounded-md bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground hover:opacity-90"
+                >
+                  View Work
+                </MagneticButton>
+                <MagneticButton
+                  href="#contact"
+                  className="inline-flex items-center rounded-md border border-border px-7 py-3.5 text-sm font-medium text-foreground hover:border-primary hover:text-primary"
+                >
+                  Get in Touch
+                </MagneticButton>
               </div>
-            </div>
+            </Reveal>
           </div>
+
+          <Reveal delay={300}>
+            <div className="mt-20 md:mt-28">
+              <ProcessCoverflow steps={processSteps} />
+            </div>
+          </Reveal>
         </div>
       </section>
 
