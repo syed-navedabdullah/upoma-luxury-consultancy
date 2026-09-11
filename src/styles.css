@@ -6,7 +6,7 @@
 
 /*
  * Upoma — Digital Strategy & AI Consultancy
- * Plain purple and white. No glow, no gradients.
+ * Teal and white. No glow, no gradients.
  */
 
 @theme inline {
@@ -48,7 +48,7 @@
 :root {
   --radius: 0.75rem;
 
-  --background: #6d28d9;
+  --background: #2dd4bf;
   --foreground: #ffffff;
   --surface: #2dd4bf;
   --tint: #2dd4bf;
@@ -58,14 +58,14 @@
   --popover: #2dd4bf;
   --popover-foreground: #ffffff;
   --primary: #ffffff;
-  --primary-foreground: #6d28d9;
+  --primary-foreground: #141414;
   --primary-deep: #ffffff;
-  --secondary: #581c87;
+  --secondary: #0d9488;
   --secondary-foreground: #ffffff;
-  --muted: #581c87;
+  --muted: #0d9488;
   --muted-foreground: rgba(255, 255, 255, 0.7);
   --accent: #ffffff;
-  --accent-foreground: #6d28d9;
+  --accent-foreground: #141414;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
   --border: rgba(255, 255, 255, 0.2);
@@ -121,9 +121,9 @@
 
 .section-light {
   --background: #ffffff;
-  --foreground: #170335;
-  --muted-foreground: rgba(23, 3, 53, 0.62);
-  --border: rgba(23, 3, 53, 0.15);
+  --foreground: #141414;
+  --muted-foreground: rgba(20, 20, 20, 0.62);
+  --border: rgba(20, 20, 20, 0.15);
   --primary: #2dd4bf;
   --primary-foreground: #ffffff;
 }
