@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 type Step = { number: string; title: string; description: string };
 
 // Cards sit on the surface of a cylinder that spins continuously around its
-// vertical axis — like a rotating globe. Only the front-facing hemisphere is
-// visible (backface hidden), so cards flow in and out of view as it turns.
-const RADIUS = 340; // px — cylinder radius
+// vertical axis — like a rotating globe. Each card is double-sided (a back face
+// mirrors the front) so every card stays visible as it turns to the rear.
+const RADIUS = 220; // px — cylinder radius (smaller = tighter cluster)
 const CARD_W = 280;
 const CARD_H = 300;
 
@@ -53,7 +53,7 @@ export function ProcessCoverflow({ steps }: { steps: Step[] }) {
         {steps.map((step, i) => (
           <div
             key={step.number}
-            className="absolute [backface-visibility:hidden]"
+            className="absolute [transform-style:preserve-3d]"
             style={{
               width: CARD_W,
               height: CARD_H,
@@ -62,7 +62,14 @@ export function ProcessCoverflow({ steps }: { steps: Step[] }) {
               transform: `rotateY(${i * theta}deg) translateZ(${RADIUS}px)`,
             }}
           >
-            <Card step={step} />
+            {/* Front face */}
+            <div className="absolute inset-0 [backface-visibility:hidden]">
+              <Card step={step} />
+            </div>
+            {/* Back face — mirrored copy so the rear reads correctly when turned */}
+            <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+              <Card step={step} />
+            </div>
           </div>
         ))}
       </div>
