@@ -200,6 +200,15 @@
   animation: pulse-dot 1.8s ease-in-out infinite;
 }
 
+@keyframes spin-y {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+@utility animate-spin-y {
+  animation: spin-y 22s linear infinite;
+}
+
 @keyframes shine {
   0% { background-position: 200% center; }
   100% { background-position: -200% center; }
@@ -230,6 +239,10 @@
   }
 
   .animate-pulse-dot {
+    animation: none;
+  }
+
+  .animate-spin-y {
     animation: none;
   }
 }

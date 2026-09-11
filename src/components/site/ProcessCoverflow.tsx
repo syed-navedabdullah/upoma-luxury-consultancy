@@ -2,83 +2,68 @@ import { useEffect, useState } from "react";
 
 type Step = { number: string; title: string; description: string };
 
-const AUTO_MS = 2800;
+// Cards sit on the surface of a cylinder that spins continuously around its
+// vertical axis — like a rotating globe. Only the front-facing hemisphere is
+// visible (backface hidden), so cards flow in and out of view as it turns.
+const RADIUS = 340; // px — cylinder radius
+const CARD_W = 280;
+const CARD_H = 300;
 
-// A 3D coverflow of the process steps — cards sit angled in shared perspective
-// and flow across as the active index auto-advances. Click any card (or dot) to
-// bring it to center; pauses on hover; degrades to a static fan for reduced motion.
+function Card({ step }: { step: Step }) {
+  return (
+    <div className="flex h-full flex-col justify-between rounded-xl border border-primary/40 bg-surface p-7 shadow-xl md:p-8">
+      <p className="font-mono text-[11px] tracking-label uppercase text-white/60">{step.number}</p>
+      <div>
+        <p className="text-2xl font-bold leading-tight text-white md:text-3xl">{step.title}</p>
+        <p className="mt-3 text-sm leading-relaxed text-white/75">{step.description}</p>
+      </div>
+    </div>
+  );
+}
+
 export function ProcessCoverflow({ steps }: { steps: Step[] }) {
-  const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
   const [reduce, setReduce] = useState(false);
 
   useEffect(() => {
     setReduce(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   }, []);
 
-  useEffect(() => {
-    if (paused || reduce) return;
-    const id = window.setInterval(() => {
-      setActive((a) => (a + 1) % steps.length);
-    }, AUTO_MS);
-    return () => window.clearInterval(id);
-  }, [paused, reduce, steps.length]);
+  // Reduced motion: a plain static row, no 3D spin.
+  if (reduce) {
+    return (
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {steps.map((step) => (
+          <div key={step.number} className="min-h-[200px]">
+            <Card step={step} />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  const theta = 360 / steps.length;
 
   return (
     <div
-      className="relative h-[300px] md:h-[340px] w-full [perspective:1600px]"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
+      className="group relative h-[400px] w-full [perspective:1600px] md:h-[440px]"
       role="group"
       aria-label="How we work"
     >
-      <div className="relative h-full w-full [transform-style:preserve-3d]">
-        {steps.map((step, i) => {
-          const offset = i - active;
-          const abs = Math.abs(offset);
-          const hidden = abs > 2;
-          const style = {
-            transform: `translateX(calc(-50% + ${offset * 46}%)) rotateY(${offset * -38}deg) translateZ(${-abs * 150}px) scale(${1 - abs * 0.07})`,
-            opacity: hidden ? 0 : 1 - abs * 0.26,
-            zIndex: 20 - abs,
-            pointerEvents: hidden ? ("none" as const) : ("auto" as const),
-          };
-          return (
-            <button
-              key={step.number}
-              type="button"
-              onClick={() => setActive(i)}
-              aria-label={`${step.number} — ${step.title}`}
-              className="absolute left-1/2 top-0 h-full w-[260px] cursor-pointer text-left transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] [backface-visibility:hidden] md:w-[300px]"
-              style={style}
-            >
-              <div className="flex h-full flex-col justify-between rounded-xl border border-primary/40 bg-surface p-7 shadow-xl md:p-8">
-                <p className="font-mono text-[11px] tracking-label uppercase text-white/60">
-                  {step.number}
-                </p>
-                <div>
-                  <p className="text-2xl font-bold leading-tight text-white md:text-3xl">
-                    {step.title}
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-white/75">{step.description}</p>
-                </div>
-              </div>
-            </button>
-          );
-        })}
-      </div>
-
-      <div className="absolute inset-x-0 -bottom-1 flex justify-center gap-2">
+      <div className="absolute left-1/2 top-1/2 h-0 w-0 animate-spin-y [transform-style:preserve-3d] group-hover:[animation-play-state:paused]">
         {steps.map((step, i) => (
-          <button
+          <div
             key={step.number}
-            type="button"
-            aria-label={`Show ${step.title}`}
-            onClick={() => setActive(i)}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              i === active ? "w-6 bg-primary" : "w-1.5 bg-foreground/25 hover:bg-foreground/40"
-            }`}
-          />
+            className="absolute [backface-visibility:hidden]"
+            style={{
+              width: CARD_W,
+              height: CARD_H,
+              left: -CARD_W / 2,
+              top: -CARD_H / 2,
+              transform: `rotateY(${i * theta}deg) translateZ(${RADIUS}px)`,
+            }}
+          >
+            <Card step={step} />
+          </div>
         ))}
       </div>
     </div>
