@@ -202,7 +202,7 @@
 
 @keyframes spin-y {
   from { transform: rotateY(0deg); }
-  to { transform: rotateY(360deg); }
+  to { transform: rotateY(-360deg); }
 }
 
 @utility animate-spin-y {

@@ -14,7 +14,7 @@ const RADIUS = 112;
 function Card({ step }: { step: Step }) {
   return (
     <div className="flex h-full flex-col justify-between rounded-xl border border-primary/40 bg-surface p-5 shadow-xl">
-      <p className="font-mono text-[10px] tracking-label uppercase text-white/60">{step.number}</p>
+      <p className="font-mono text-[10px] tracking-label uppercase text-white">{step.number}</p>
       <div>
         <p className="text-lg font-bold leading-tight text-white">{step.title}</p>
         <p className="mt-2 text-xs leading-relaxed text-white/75">{step.description}</p>
