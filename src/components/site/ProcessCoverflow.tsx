@@ -5,17 +5,19 @@ type Step = { number: string; title: string; description: string };
 // Cards sit on the surface of a cylinder that spins continuously around its
 // vertical axis — like a rotating globe. Each card is double-sided (a back face
 // mirrors the front) so every card stays visible as it turns to the rear.
-const RADIUS = 220; // px — cylinder radius (smaller = tighter cluster)
-const CARD_W = 280;
-const CARD_H = 300;
+// For a 4-card ring, edges meet when RADIUS === CARD_W / 2; a hair above that
+// leaves the cards almost touching.
+const CARD_W = 200;
+const CARD_H = 250;
+const RADIUS = 112;
 
 function Card({ step }: { step: Step }) {
   return (
-    <div className="flex h-full flex-col justify-between rounded-xl border border-primary/40 bg-surface p-7 shadow-xl md:p-8">
-      <p className="font-mono text-[11px] tracking-label uppercase text-white/60">{step.number}</p>
+    <div className="flex h-full flex-col justify-between rounded-xl border border-primary/40 bg-surface p-5 shadow-xl">
+      <p className="font-mono text-[10px] tracking-label uppercase text-white/60">{step.number}</p>
       <div>
-        <p className="text-2xl font-bold leading-tight text-white md:text-3xl">{step.title}</p>
-        <p className="mt-3 text-sm leading-relaxed text-white/75">{step.description}</p>
+        <p className="text-lg font-bold leading-tight text-white">{step.title}</p>
+        <p className="mt-2 text-xs leading-relaxed text-white/75">{step.description}</p>
       </div>
     </div>
   );
@@ -31,9 +33,9 @@ export function ProcessCoverflow({ steps }: { steps: Step[] }) {
   // Reduced motion: a plain static row, no 3D spin.
   if (reduce) {
     return (
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3">
         {steps.map((step) => (
-          <div key={step.number} className="min-h-[200px]">
+          <div key={step.number} className="min-h-[150px]">
             <Card step={step} />
           </div>
         ))}
@@ -45,7 +47,7 @@ export function ProcessCoverflow({ steps }: { steps: Step[] }) {
 
   return (
     <div
-      className="group relative h-[400px] w-full [perspective:1600px] md:h-[440px]"
+      className="group relative h-[320px] w-full [perspective:1200px] md:h-[360px]"
       role="group"
       aria-label="How we work"
     >

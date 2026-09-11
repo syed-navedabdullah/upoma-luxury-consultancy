@@ -434,37 +434,39 @@ function Home() {
               <span className="hidden sm:inline text-muted-foreground/50">/ AI-native consultancy</span>
             </div>
           </Reveal>
-          <div className="max-w-4xl">
-            <AnimatedHeadline />
-            <Reveal delay={100}>
-              <p className="mt-8 max-w-2xl text-lg text-muted-foreground leading-relaxed text-pretty">
-                AI tools, digital strategy, and social media systems — plus branding when you
-                need it.
-              </p>
-            </Reveal>
-            <Reveal delay={200}>
-              <div className="mt-10 flex flex-wrap gap-4">
-                <MagneticButton
-                  href="#work"
-                  className="inline-flex items-center rounded-md bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground hover:opacity-90"
-                >
-                  View Work
-                </MagneticButton>
-                <MagneticButton
-                  href="#contact"
-                  className="inline-flex items-center rounded-md border border-border px-7 py-3.5 text-sm font-medium text-foreground hover:border-primary hover:text-primary"
-                >
-                  Get in Touch
-                </MagneticButton>
-              </div>
-            </Reveal>
-          </div>
-
-          <Reveal delay={300}>
-            <div className="mt-20 md:mt-28">
-              <ProcessCoverflow steps={processSteps} />
+          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-8">
+            <div className="lg:col-span-7">
+              <AnimatedHeadline />
+              <Reveal delay={100}>
+                <p className="mt-8 max-w-2xl text-lg text-muted-foreground leading-relaxed text-pretty">
+                  AI tools, digital strategy, and social media systems — plus branding when you
+                  need it.
+                </p>
+              </Reveal>
+              <Reveal delay={200}>
+                <div className="mt-10 flex flex-wrap gap-4">
+                  <MagneticButton
+                    href="#work"
+                    className="inline-flex items-center rounded-md bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground hover:opacity-90"
+                  >
+                    View Work
+                  </MagneticButton>
+                  <MagneticButton
+                    href="#contact"
+                    className="inline-flex items-center rounded-md border border-border px-7 py-3.5 text-sm font-medium text-foreground hover:border-primary hover:text-primary"
+                  >
+                    Get in Touch
+                  </MagneticButton>
+                </div>
+              </Reveal>
             </div>
-          </Reveal>
+
+            <div className="lg:col-span-5">
+              <Reveal delay={300}>
+                <ProcessCoverflow steps={processSteps} />
+              </Reveal>
+            </div>
+          </div>
         </div>
       </section>
 
