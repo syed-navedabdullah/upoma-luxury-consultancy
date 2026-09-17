@@ -224,6 +224,24 @@
   animation: boot-logo 2.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* Warp streaks — thin lines that stretch outward from the vanishing point. */
+@keyframes boot-warp {
+  0% { opacity: 0; transform: rotate(var(--angle)) scaleX(0.08); }
+  18% { opacity: 0.8; }
+  100% { opacity: 0; transform: rotate(var(--angle)) scaleX(1); }
+}
+
+@utility animate-boot-warp {
+  animation: boot-warp 1s cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
+}
+
+/* Pointer parallax — the boot root sets --mx/--my (a lerped pointer offset in
+   px); each layer scales it by its own --pf factor for depth. */
+.boot-parallax {
+  transform: translate3d(calc(var(--mx, 0px) * var(--pf, 1)), calc(var(--my, 0px) * var(--pf, 1)), 0);
+  will-change: transform;
+}
+
 /* Extruded 3D face — white top with a stack of silver bevel shadows. */
 .boot-logo-3d {
   color: #ffffff;
