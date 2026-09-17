@@ -215,13 +215,15 @@ export function BootIntro() {
         <WarpStreaks />
       </div>
 
-      {/* Wordmark — extruded 3D face swinging in from the depth; counter-shifts
+      {/* Wordmark — one massive flat form rolling in from the left; counter-shifts
           against the clouds so it reads as the fixed point the camera flies to */}
       <div
         className="boot-parallax absolute inset-0 flex items-center justify-center"
         style={{ "--pf": -0.25 } as CSSProperties}
       >
-        <p className="boot-logo-3d animate-boot-logo font-serif text-7xl md:text-9xl">উপমা</p>
+        <p className="animate-boot-logo whitespace-nowrap font-serif text-[38vw] leading-[1.05] tracking-[-0.02em] text-white">
+          উপমা
+        </p>
       </div>
     </div>
   );
